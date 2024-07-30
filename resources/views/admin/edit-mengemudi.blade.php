@@ -1,5 +1,5 @@
-@extends('layout.main')
-@section('title', 'Elmuna - Daftar Mengemudi')
+@extends('layout.admin')
+@section('title', 'Elmuna - Edit Mengemudi')
 @section('content')
     @if (Session::has('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <center>
-                <h3>Form Pendaftaran Kursus Mengemudi</h3>
+                <h3>Form Edit Kursus Mengemudi</h3>
             </center>
         </div>
         <div class="card-body">
@@ -23,68 +23,71 @@
                     </ul>
                 </div>
             @endif
+            @php
+                $paket = json_decode($data[0]->paket);
+            @endphp
             <form action="/tambah-mengemudi" method="post">
                 @csrf
+                @method('put')
                 <center>
                     <h5>Identitas Peserta</h5>
                 </center>
                 <div class="mb-3">
                     <label for="nik" class="form-label">NIK</label>
                     <input type="text" name="nik" id="nik" class="form-control" aria-describedby="nikHelp"
-                        value="{{ old('nik') }}">
+                        value="{{ $data[0]->nik }}">
                     <div id="nikHelp" class="form-text">NIK wajib 16 digit berupa angka</div>
                 </div>
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama Lengkap</label>
-                    <input type="text" name="nama" id="nama" class="form-control" value="{{ old('nama') }}">
+                    <input type="text" name="nama" id="nama" class="form-control" value="{{ $data[0]->nama }}">
                 </div>
                 <div class="mb-3">
                     <label for="alamat" class="form-label">Alamat</label>
-                    <input type="text" name="alamat" id="alamat" class="form-control" value="{{ old('alamat') }}">
+                    <input type="text" name="alamat" id="alamat" class="form-control" value="{{ $data[0]->alamat }}">
                 </div>
                 <div class="mb-3">
                     <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
                     <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control"
-                        value="{{ old('tempat_lahir') }}">
+                        value="{{ $data[0]->tempat_lahir }}">
                 </div>
                 <div class="mb-3">
                     <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
                     <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control"
-                        value="{{ old('tanggal_lahir') }}">
+                        value="{{ $data[0]->tanggal_lahir }}">
                 </div>
                 <div class="mb-3">
                     <label for="jk" class="form-label">Jenis Kelamin</label>
                     <select name="jk" id="jk" class="form-select select2"
                         data-placeholder="Pilih Jenis Kelamin">
-                        <option></option>
-                        <option>Laki-laki</option>
-                        <option>Perempuan</option>
+                        <option value="Laki-laki" {{ $data[0]->jk == 'Laki-laki' ? 'selected' : null }}>Laki-laki</option>
+                        <option value="Perempuan" {{ $data[0]->jk == 'Perempuan' ? 'selected' : null }}>Perempuan</option>
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="nama_ayah" class="form-label">Nama Ayah</label>
                     <input type="text" name="nama_ayah" id="nama_ayah" class="form-control"
-                        value="{{ old('nama_ayah') }}">
+                        value="{{ $data[0]->nama_ayah }}">
                 </div>
                 <div class="mb-3">
                     <label for="nama_ibu" class="form-label">Nama Ibu</label>
-                    <input type="text" name="nama_ibu" id="nama_ibu" class="form-control" value="{{ old('nama_ibu') }}">
+                    <input type="text" name="nama_ibu" id="nama_ibu" class="form-control"
+                        value="{{ $data[0]->nama_ibu }}">
                 </div>
                 <div class="mb-3">
                     <label for="telepon" class="form-label">No. WA</label>
                     <input type="text" name="telepon" id="telepon" class="form-control" aria-describedby="teleponHelp"
-                        value="{{ old('telepon') }}" placeholder="Ganti 08 menjadi 628">
+                        value="{{ $data[0]->telepon }}" placeholder="Ganti 08 menjadi 628">
                     <div id="teleponHelp" class="form-text">Misal 08131111222 menjadi 6281311112222</div>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}">
+                    <input type="email" name="email" id="email" class="form-control" value="{{ $data[0]->email }}">
                 </div>
                 <div class="mb-3">
                     <label for="kecamatan" class="form-label">Kecamatan</label>
                     <select name="kecamatan" id="kecamatan" class="form-select select2"
                         data-placeholder="Pilih Kecamatan">
-                        <option></option>
                         <option>Adimulyo</option>
                         <option>Alian</option>
                         <option>Ambal</option>
@@ -117,7 +120,8 @@
                     <label for="paket" class="form-label">Pilih Paket</label>
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="paket_manual_1" class="form-check-input"
-                            value="PAKET MANUAL 1 (MELANCARKAN)">
+                            value="PAKET MANUAL 1 (MELANCARKAN)"
+                            {{ in_array('PAKET MANUAL 1 (MELANCARKAN)', $paket) ? 'checked' : '' }}>
                         <label for="paket_manual_1" class="form-check-label">PAKET MANUAL 1 (MELANCARKAN)</label>
                     </div>
                     <div class="form-check">

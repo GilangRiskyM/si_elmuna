@@ -24,7 +24,6 @@ class Pemrograman extends Model
         'email',
         'kecamatan',
         'paket',
-        'pilih_bayar',
 
     ];
 }

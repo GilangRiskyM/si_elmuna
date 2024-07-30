@@ -24,7 +24,6 @@ class Komputer extends Model
         'email',
         'kecamatan',
         'paket',
-        'pilih_bayar',
 
     ];
 }

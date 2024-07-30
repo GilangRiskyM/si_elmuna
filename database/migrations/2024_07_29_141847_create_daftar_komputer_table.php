@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('email');
             $table->string('kecamatan');
             $table->string('paket');
-            $table->string('pilih_bayar');
             $table->timestamps();
         });
     }
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('komputer');
+        Schema::dropIfExists('daftar_komputer');
     }
 };

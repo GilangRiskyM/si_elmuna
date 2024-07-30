@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DesainGrafisController extends Controller
 {
-    function index()
+    function create()
     {
         return view('pendaftaran.desain_grafis');
     }

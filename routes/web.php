@@ -18,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dashboard.index');
 });
+Route::get('/dashboard', function () {
+    return view('admin.index');
+});
 
-Route::get('/daftar_mengemudi', [MengemudiController::class, 'index']);
-Route::get('/daftar_digital_marketing', [DesainGrafisController::class, 'index']);
+Route::get('/daftar_mengemudi', [MengemudiController::class, 'create']);
+Route::post('/tambah-mengemudi', [MengemudiController::class, 'store']);
+Route::get('/data_mengemudi', [MengemudiController::class, 'index']);
+Route::get('/edit_mengemudi/{id}', [MengemudiController::class, 'edit']);
+
+Route::get('/daftar_digital_marketing', [DesainGrafisController::class, 'create']);

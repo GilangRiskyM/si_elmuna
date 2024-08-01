@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EditMengemudiRequest;
 use App\Http\Requests\TambahMengemudiRequest;
 use App\Models\Mengemudi;
 use Illuminate\Support\Facades\Session;
@@ -39,5 +40,19 @@ class MengemudiController extends Controller
         $data = Mengemudi::where('id', $id)->get();
 
         return view('admin.edit-mengemudi', ['data' => $data]);
+    }
+
+    function update(EditMengemudiRequest $request, $id)
+    {
+        $request->validated();
+        $request['paket'] = json_encode($request->paket);
+        $sql = Mengemudi::findOrFail($id);
+        $update = $sql->update($request->all());
+        if ($update) {
+            Session::flash('status', 'success');
+            Session::flash('message', 'Edit Data Berhasil!!!');
+        }
+
+        return redirect('/data_mengemudi');
     }
 }

@@ -26,7 +26,7 @@
             @php
                 $paket = json_decode($data[0]->paket);
             @endphp
-            <form action="/tambah-mengemudi" method="post">
+            <form action="/update-mengemudi/{{ $data[0]->id }}" method="post">
                 @csrf
                 @method('put')
                 <center>
@@ -88,32 +88,50 @@
                     <label for="kecamatan" class="form-label">Kecamatan</label>
                     <select name="kecamatan" id="kecamatan" class="form-select select2"
                         data-placeholder="Pilih Kecamatan">
-                        <option>Adimulyo</option>
-                        <option>Alian</option>
-                        <option>Ambal</option>
-                        <option>Ayah</option>
-                        <option>Bonorowo</option>
-                        <option>Buayan</option>
-                        <option>Buluspesantren</option>
-                        <option>Gombong</option>
-                        <option>Karanganyar</option>
-                        <option>Karanggayam</option>
-                        <option>Karangsambung</option>
-                        <option>Kebumen</option>
-                        <option>Klirong</option>
-                        <option>Kutowinangun</option>
-                        <option>Kuwarasan</option>
-                        <option>Mirit</option>
-                        <option>Padureso</option>
-                        <option>Pejagoan</option>
-                        <option>Petanahan</option>
-                        <option>Poncowarno</option>
-                        <option>Prembun</option>
-                        <option>Puring</option>
-                        <option>Rowokele</option>
-                        <option>Sadang</option>
-                        <option>Sempor</option>
-                        <option>Sruweng</option>
+                        <option value="Adimulyo" {{ $data[0]->kecamatan == 'Adimulyo' ? 'selected' : null }}>Adimulyo
+                        </option>
+                        <option value="Alian" {{ $data[0]->kecamatan == 'Alian' ? 'selected' : null }}>Alian</option>
+                        <option value="Ambal" {{ $data[0]->kecamatan == 'Ambal' ? 'selected' : null }}>Ambal</option>
+                        <option value="Ayah" {{ $data[0]->kecamatan == 'Ayah' ? 'selected' : null }}>Ayah</option>
+                        <option value="Bonorowo" {{ $data[0]->kecamatan == 'Bonorowo' ? 'selected' : null }}>Bonorowo
+                        </option>
+                        <option value="Buayan" {{ $data[0]->kecamatan == 'Buayan' ? 'selected' : null }}>Buayan</option>
+                        <option value="Buluspesantren" {{ $data[0]->kecamatan == 'Buluspesantren' ? 'selected' : null }}>
+                            Buluspesantren</option>
+                        <option value="Gombong" {{ $data[0]->kecamatan == 'Gombong' ? 'selected' : null }}>Gombong
+                        </option>
+                        <option value="Karanganyar" {{ $data[0]->kecamatan == 'Karanganyar' ? 'selected' : null }}>
+                            Karanganyar</option>
+                        <option value="Karanggayam" {{ $data[0]->kecamatan == 'Karanggayam' ? 'selected' : null }}>
+                            Karanggayam</option>
+                        <option value="Karangsambung" {{ $data[0]->kecamatan == 'Karangsambung' ? 'selected' : null }}>
+                            Karangsambung</option>
+                        <option value="Kebumen" {{ $data[0]->kecamatan == 'Kebumen' ? 'selected' : null }}>Kebumen
+                        </option>
+                        <option value="Klirong" {{ $data[0]->kecamatan == 'Klirong' ? 'selected' : null }}>Klirong
+                        </option>
+                        <option value="Kutowinangun" {{ $data[0]->kecamatan == 'Kutowinangun' ? 'selected' : null }}>
+                            Kutowinangun</option>
+                        <option value="Kuwarasan" {{ $data[0]->kecamatan == 'Kuwarasan' ? 'selected' : null }}>Kuwarasan
+                        </option>
+                        <option value="Mirit" {{ $data[0]->kecamatan == 'Mirit' ? 'selected' : null }}>Mirit</option>
+                        <option value="Padureso" {{ $data[0]->kecamatan == 'Padureso' ? 'selected' : null }}>Padureso
+                        </option>
+                        <option value="Pejagoan" {{ $data[0]->kecamatan == 'Pejagoan' ? 'selected' : null }}>Pejagoan
+                        </option>
+                        <option value="Petanahan" {{ $data[0]->kecamatan == 'Petanahan' ? 'selected' : null }}>Petanahan
+                        </option>
+                        <option value="Poncowarno" {{ $data[0]->kecamatan == 'Poncowarno' ? 'selected' : null }}>
+                            Poncowarno</option>
+                        <option value="Prembun" {{ $data[0]->kecamatan == 'Prembun' ? 'selected' : null }}>Prembun
+                        </option>
+                        <option value="Puring" {{ $data[0]->kecamatan == 'Puring' ? 'selected' : null }}>Puring</option>
+                        <option value="Rowokele" {{ $data[0]->kecamatan == 'Rowokele' ? 'selected' : null }}>Rowokele
+                        </option>
+                        <option value="Sadang" {{ $data[0]->kecamatan == 'Sadang' ? 'selected' : null }}>Sadang</option>
+                        <option value="Sempor" {{ $data[0]->kecamatan == 'Sempor' ? 'selected' : null }}>Sempor</option>
+                        <option value="Sruweng" {{ $data[0]->kecamatan == 'Sruweng' ? 'selected' : null }}>Sruweng
+                        </option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -126,30 +144,33 @@
                     </div>
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="paket_manual_2" class="form-check-input"
-                            value="PAKET MANUAL 2 (PEMULA)">
+                            value="PAKET MANUAL 2 (PEMULA)"
+                            {{ in_array('PAKET MANUAL 2 (PEMULA)', $paket) ? 'checked' : '' }}>
                         <label for="paket_manual_2" class="form-check-label">PAKET MANUAL 2 (PEMULA)</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="paket_manual_3" class="form-check-input"
-                            value="PAKET MANUAL 3 (MAHIR)">
+                            value="PAKET MANUAL 3 (MAHIR)"
+                            {{ in_array('PAKET MANUAL 3 (MAHIR)', $paket) ? 'checked' : '' }}>
                         <label for="paket_manual_3" class="form-check-label">PAKET MANUAL 3 (MAHIR)</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="paket_matic_1" class="form-check-input"
-                            value="PAKET MATIC 1 (PEMULA)">
+                            value="PAKET MATIC 1 (PEMULA)"
+                            {{ in_array('PAKET MATIC 1 (PEMULA)', $paket) ? 'checked' : '' }}>
                         <label for="paket_matic_1" class="form-check-label">PAKET MATIC 1 (PEMULA)</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="paket_matic_2" class="form-check-input"
-                            value="PAKET MATIC 2 (MAHIR)">
+                            value="PAKET MATIC 2 (MAHIR)"
+                            {{ in_array('PAKET MATIC 2 (MAHIR)', $paket) ? 'checked' : '' }}>
                         <label for="paket_matic_2" class="form-check-label">PAKET MATIC 2 (MAHIR)</label>
                     </div>
                 </div>
                 <div class="my-2">
                     <center>
-                        <a href="/" class="btn btn-secondary">Kembali</a>
-                        <button type="reset" class="btn btn-danger mx-2">Batal</button>
-                        <button type="submit" class="btn btn-success">Kirim</button>
+                        <a href="/data_mengemudi" class="btn btn-secondary">Kembali</a>
+                        <button type="submit" class="btn btn-success ms-2">Kirim</button>
                     </center>
                 </div>
             </form>

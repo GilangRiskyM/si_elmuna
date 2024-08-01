@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('kecamatan');
             $table->string('paket');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -34,6 +35,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('daftar_desain_grafis');
+        Schema::dropIfExists('daftar_desain_grafis', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

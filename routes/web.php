@@ -29,5 +29,9 @@ Route::get('/edit_mengemudi/{id}', [MengemudiController::class, 'edit']);
 Route::put('/update-mengemudi/{id}', [MengemudiController::class, 'update']);
 Route::get('/hapus_mengemudi/{id}', [MengemudiController::class, 'delete']);
 Route::delete('/destroy-mengemudi/{id}', [MengemudiController::class, 'destroy']);
+Route::get('/data_mengemudi/terhapus', [MengemudiController::class, 'deletedMengemudi']);
+Route::get('/restore-mengemudi/{id}', [MengemudiController::class, 'restoreData']);
+Route::get('/hapus_permanen_mengemudi/{id}', [MengemudiController::class, 'deletePermanen']);
+Route::delete('/force-delete-mengemudi/{id}', [MengemudiController::class, 'forceDelete']);
 
 Route::get('/daftar_digital_marketing', [DesainGrafisController::class, 'create']);

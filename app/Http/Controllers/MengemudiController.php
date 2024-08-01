@@ -74,4 +74,47 @@ class MengemudiController extends Controller
 
         return redirect('/data_mengemudi');
     }
+
+    function deletedMengemudi()
+    {
+        $data = Mengemudi::onlyTrashed()->get();
+
+        return view('admin.mengemudi.data-terhapus', ['data' => $data]);
+    }
+
+    function restoreData($id)
+    {
+        $sql = Mengemudi::withTrashed()
+            ->where('id', $id)
+            ->restore();
+
+        if ($sql) {
+            Session::flash('status', 'success');
+            Session::flash('message', 'Restore Data Berhasil!!!');
+        }
+
+        return redirect('/data_mengemudi');
+    }
+
+    function deletePermanen($id)
+    {
+        $data = Mengemudi::withTrashed()
+            ->findOrFail($id);
+
+        return view('admin.mengemudi.hapus-permanen', ['data' => $data]);
+    }
+
+    function forceDelete($id)
+    {
+        $sql = Mengemudi::withTrashed()
+            ->findOrFail($id)
+            ->forceDelete();
+
+        if ($sql) {
+            Session::flash('status', 'success');
+            Session::flash('message', 'Berhasil Hapus Data Secara Permanen!!!');
+        }
+
+        return redirect('/data_mengemudi/terhapus');
+    }
 }

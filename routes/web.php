@@ -27,5 +27,7 @@ Route::post('/tambah-mengemudi', [MengemudiController::class, 'store']);
 Route::get('/data_mengemudi', [MengemudiController::class, 'index']);
 Route::get('/edit_mengemudi/{id}', [MengemudiController::class, 'edit']);
 Route::put('/update-mengemudi/{id}', [MengemudiController::class, 'update']);
+Route::get('/hapus_mengemudi/{id}', [MengemudiController::class, 'delete']);
+Route::delete('/destroy-mengemudi/{id}', [MengemudiController::class, 'destroy']);
 
 Route::get('/daftar_digital_marketing', [DesainGrafisController::class, 'create']);

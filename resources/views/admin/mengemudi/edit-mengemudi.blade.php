@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <center>
-                <h3>Form Edit Kursus Mengemudi</h3>
+                <h3>Form Edit Peserta Kursus Mengemudi</h3>
             </center>
         </div>
         <div class="card-body">

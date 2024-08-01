@@ -32,14 +32,14 @@ class MengemudiController extends Controller
     {
         $data = Mengemudi::get();
 
-        return view('admin.mengemudi', ['data' => $data]);
+        return view('admin.mengemudi.mengemudi', ['data' => $data]);
     }
 
     function edit($id)
     {
         $data = Mengemudi::where('id', $id)->get();
 
-        return view('admin.edit-mengemudi', ['data' => $data]);
+        return view('admin.mengemudi.edit-mengemudi', ['data' => $data]);
     }
 
     function update(EditMengemudiRequest $request, $id)
@@ -51,6 +51,25 @@ class MengemudiController extends Controller
         if ($update) {
             Session::flash('status', 'success');
             Session::flash('message', 'Edit Data Berhasil!!!');
+        }
+
+        return redirect('/data_mengemudi');
+    }
+
+    function delete($id)
+    {
+        $data = Mengemudi::findOrFail($id);
+
+        return view('admin.mengemudi.hapus-mengemudi', ['data' => $data]);
+    }
+
+    function destroy($id)
+    {
+        $sql = Mengemudi::findOrFail($id);
+        $delete = $sql->delete();
+        if ($delete) {
+            Session::flash('status', 'success');
+            Session::flash('message', 'Hapus Data Berhasil!!!');
         }
 
         return redirect('/data_mengemudi');

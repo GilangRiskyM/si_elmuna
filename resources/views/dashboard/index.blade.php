@@ -2,7 +2,7 @@
 @section('title', 'Elmuna - Program Kursus')
 @section('content')
     <center>
-        <h1>Selamat Datang di Sistem Pendaftaran Kursus <br>ELMUNA INSTITUT</h1>
+        <h1>Selamat Datang di Sistem Pendaftaran Kursus <br>ELMUNA KEBUMEN</h1>
     </center>
     <div class="row mt-4">
         <div class="col-lg-3 mb-3" data-aos="flip-right">

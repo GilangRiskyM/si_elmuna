@@ -22,7 +22,7 @@ class TambahMengemudiRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nik' => 'min:16|required|integer',
+            'nik' => 'required|string|size:16',
             'nama' => 'required',
             'alamat' => 'required',
             'tempat_lahir' => 'required',
@@ -41,7 +41,7 @@ class TambahMengemudiRequest extends FormRequest
     public function messages()
     {
         return [
-            'nik.min' => 'NIK harus 16 digit',
+            'nik.size' => 'NIK harus 16 digit',
             'nik.required' => 'NIK wajib diisi',
             'nik.integer' => 'NIK harus berupa angka',
             'nama.required' => 'Nama wajib diisi',

@@ -1,0 +1,18 @@
+<div class="form-check">
+    <input type="checkbox" name="paket[]" id="editing_video_filmora" class="form-check-input"
+        value="EDITING VIDEO FILMORA"
+        {{ in_array('EDITING VIDEO FILMORA', $paket) ? 'checked' : '' }}>
+    <label for="editing_video_filmora" class="form-check-label">EDITING VIDEO FILMORA</label>
+</div>
+
+<div class="form-check">
+    <input type="checkbox" name="paket[]" id="editing_video_capcut" class="form-check-input"
+        value="EDITING VIDEO CAPCUT" {{ in_array('EDITING VIDEO CAPCUT', $paket) ? 'checked' : '' }}>
+    <label for="editing_video_capcut" class="form-check-label">EDITING VIDEO CAPCUT</label>
+</div>
+
+<div class="form-check">
+    <input type="checkbox" name="paket[]" id="fotografi" class="form-check-input"
+        value="FOTOGRAFI" {{ in_array('FOTOGRAFI', $paket) ? 'checked' : '' }}>
+    <label for="fotografi" class="form-check-label">FOTOGRAFI</label>
+</div>

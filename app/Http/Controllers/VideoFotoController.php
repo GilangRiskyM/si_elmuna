@@ -2,90 +2,90 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\EditDesainGrafisRequest;
-use App\Http\Requests\TambahDesainGrafisRequest;
-use App\Models\DesainGrafis;
+use App\Http\Requests\EditVideoFotoRequest;
+use App\Http\Requests\TambahVideoFotoRequest;
+use App\Models\VideoFoto;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class DesainGrafisController extends Controller
+class VideoFotoController extends Controller
 {
     function create()
     {
-        return view('pendaftaran.desain_grafis');
+        return view('pendaftaran.video_editing_fotografi');
     }
 
-
-    function store(TambahDesainGrafisRequest $request)
+    function store(TambahVideoFotoRequest $request)
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = DesainGrafis::create($request->all());
+        $sql = VideoFoto::create($request->all());
 
         if ($sql) {
             Session::flash('status', 'success');
             Session::flash('message', 'Anda [' . $request->nama . '] Berhasil Mendaftar!!!');
         }
 
-        return redirect('/daftar_desain_grafis');
+        return redirect('/daftar_video_editing_fotografi');
     }
 
     function index()
     {
-        $data = DesainGrafis::get();
+        $data = VideoFoto::get();
 
-        return view('admin.desain_grafis.desain_grafis', ['data' => $data]);
+        return view('admin.video_editing_fotografi.video_editing_fotografi', ['data' => $data]);
     }
 
     function edit($id)
     {
-        $data = DesainGrafis::where('id', $id)->get();
+        $data = VideoFoto::where('id', $id)->get();
 
-        return view('admin.desain_grafis.edit-desain_grafis', ['data' => $data]);
+        return view('admin.video_editing_fotografi.edit-video_editing_fotografi', ['data' => $data]);
     }
 
-    function update(EditDesainGrafisRequest $request, $id)
+    function update(EditVideoFotoRequest $request, $id)
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = DesainGrafis::findOrFail($id);
+        $sql = VideoFoto::findOrFail($id);
         $update = $sql->update($request->all());
         if ($update) {
             Session::flash('status', 'success');
             Session::flash('message', 'Edit Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_video_editing_fotografi');
     }
 
     function delete($id)
     {
-        $data = DesainGrafis::findOrFail($id);
+        $data = VideoFoto::findOrFail($id);
 
-        return view('admin.desain_grafis.hapus-desain_grafis', ['data' => $data]);
+        return view('admin.video_editing_fotografi.hapus-video_editing_fotografi', ['data' => $data]);
     }
 
     function destroy($id)
     {
-        $sql = DesainGrafis::findOrFail($id);
+        $sql = VideoFoto::findOrFail($id);
         $delete = $sql->delete();
         if ($delete) {
             Session::flash('status', 'success');
             Session::flash('message', 'Hapus Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_video_editing_fotografi');
     }
 
-    function deletedDesainGrafis()
+    function deletedVideoFoto()
     {
-        $data = DesainGrafis::onlyTrashed()->get();
+        $data = VideoFoto::onlyTrashed()->get();
 
-        return view('admin.desain_grafis.data-terhapus', ['data' => $data]);
+        return view('admin.video_editing_fotografi.data-terhapus', ['data' => $data]);
     }
 
     function restoreData($id)
     {
-        $sql = DesainGrafis::withTrashed()
+        $sql = VideoFoto::withTrashed()
             ->where('id', $id)
             ->restore();
 
@@ -94,20 +94,20 @@ class DesainGrafisController extends Controller
             Session::flash('message', 'Restore Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_video_editing_fotografi');
     }
 
     function deletePermanen($id)
     {
-        $data = DesainGrafis::withTrashed()
+        $data = VideoFoto::withTrashed()
             ->findOrFail($id);
 
-        return view('admin.desain_grafis.hapus-permanen', ['data' => $data]);
+        return view('admin.video_editing_fotografi.hapus-permanen', ['data' => $data]);
     }
 
     function forceDelete($id)
     {
-        $sql = DesainGrafis::withTrashed()
+        $sql = VideoFoto::withTrashed()
             ->findOrFail($id)
             ->forceDelete();
 
@@ -116,6 +116,6 @@ class DesainGrafisController extends Controller
             Session::flash('message', 'Berhasil Hapus Data Secara Permanen!!!');
         }
 
-        return redirect('/data_desain_grafis/terhapus');
+        return redirect('/data_video_editing_fotografi/terhapus');
     }
 }

@@ -4,15 +4,15 @@
     <center>
         <h1>DATA PESERTA KURSUS MENGEMUDI</h1>
     </center>
-    <div class="my-3">
-        <a href="/data_mengemudi/terhapus" class="btn btn-secondary">Restore Data</a>
-    </div>
     @if (Session::has('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ Session::get('message') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    <div class="my-3">
+        <a href="/data_mengemudi/terhapus" class="btn btn-secondary">Restore Data</a>
+    </div>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>

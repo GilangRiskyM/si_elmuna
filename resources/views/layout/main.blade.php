@@ -12,6 +12,7 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    @stack('css')
 </head>
 
 <body>
@@ -21,7 +22,7 @@
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
                     <a href="/" data-aos="fade" class="">
-                        <img src="/asset/img/elmuna.png" alt="Logo" width="40%">
+                        <img src="{{ asset('asset/img/elmuna2.png') }}" alt="Logo" width="40%">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

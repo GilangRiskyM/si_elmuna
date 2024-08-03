@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EditMengemudiRequest extends FormRequest
+class TambahKomputerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,6 +34,7 @@ class EditMengemudiRequest extends FormRequest
             'email' => 'required',
             'kecamatan' => 'required',
             'paket' => 'required'
+
         ];
     }
 

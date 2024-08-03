@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Elmuna - Daftar Desain Grafis')
+@section('title', 'Elmuna - Daftar Bahasa Inggris')
 @section('content')
     @if (Session::has('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <center>
-                <h3>Form Pendaftaran Kursus Desain Grafis</h3>
+                <h3>Form Pendaftaran Kursus Bahasa Inggris</h3>
             </center>
         </div>
         <div class="card-body">
@@ -23,7 +23,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/tambah-desain_grafis" method="post">
+            <form action="/tambah-bahasa_inggris" method="post">
                 @csrf
                 <center>
                     <h5>Identitas Peserta</h5>
@@ -116,20 +116,19 @@
                 <div class="mb-3">
                     <label for="paket" class="form-label">Pilih Paket</label>
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_corel_draw" class="form-check-input"
-                            value="DESAIN GRAFIS COREL DRAW">
-                        <label for="desain_grafis_corel_draw" class="form-check-label">DESAIN GRAFIS COREL DRAW</label>
+                        <input type="checkbox" name="paket[]" id="elmentary" class="form-check-input"
+                            value="ELEMENTARY">
+                        <label for="elmentary" class="form-check-label">ELEMENTARY</label>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_adobe_photoshop"
-                            class="form-check-input" value="DESAIN GRAFIS ADOBE PHOTOSHOP">
-                        <label for="desain_grafis_adobe_photoshop" class="form-check-label">DESAIN GRAFIS ADOBE
-                            PHOTOSHOP</label>
+                        <input type="checkbox" name="paket[]" id="intermediate" class="form-check-input"
+                            value="INTERMEDIATE">
+                        <label for="intermediate" class="form-check-label">INTERMEDIATE</label>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_canva" class="form-check-input"
-                            value="DESAIN GRAFIS CANVA">
-                        <label for="desain_grafis_canva" class="form-check-label">DESAIN GRAFIS CANVA</label>
+                        <input type="checkbox" name="paket[]" id="conversation" class="form-check-input"
+                            value="CONVERSATION">
+                        <label for="conversation" class="form-check-label">CONVERSATION</label>
                     </div>
 
                 </div>

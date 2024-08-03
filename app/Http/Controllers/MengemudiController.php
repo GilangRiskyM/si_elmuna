@@ -22,7 +22,7 @@ class MengemudiController extends Controller
 
         if ($sql) {
             Session::flash('status', 'success');
-            Session::flash('message', 'Anda Berhasil Mendaftar!!!');
+            Session::flash('message', 'Anda [' . $request->nama . '] Berhasil Mendaftar!!!');
         }
 
         return redirect('/daftar_mengemudi');

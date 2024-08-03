@@ -26,7 +26,7 @@
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
                     <a href="/dashboard" data-aos="fade" class="">
-                        <img src="/asset/img/elmuna.png" alt="Logo" width="40%">
+                        <img src="/asset/img/elmuna2.png" alt="Logo" width="40%">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

@@ -1,8 +1,8 @@
 @extends('layout.admin')
-@section('title', 'Elmuna - Data Mengemudi')
+@section('title', 'Elmuna - Data Bahasa Inggris')
 @section('content')
     <center>
-        <h1>Data Peserta Kursus Mengemudi Yang Dihapus</h1>
+        <h1>DATA PESERTA KURSUS BAHASA INGGRIS</h1>
     </center>
     @if (Session::has('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -11,7 +11,7 @@
         </div>
     @endif
     <div class="my-3">
-        <a href="/data_mengemudi" class="btn btn-secondary">Kembali</a>
+        <a href="/data_bahasa_inggris/terhapus" class="btn btn-secondary">Restore Data</a>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered">
@@ -58,9 +58,8 @@
                                 @endforeach
                             </td>
                             <td>
-                                <a href="/restore-mengemudi/{{ $datum->id }}" class="btn btn-success">Restore</a>
-                                <a href="/hapus_permanen_mengemudi/{{ $datum->id }}" class="btn btn-danger my-2">Hapus
-                                    Permanen</a>
+                                <a href="/edit_bahasa_inggris/{{ $datum->id }}" class="btn btn-warning">Edit</a>
+                                <a href="/hapus_bahasa_inggris/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
                             </td>
                         </tr>
                     @endforeach

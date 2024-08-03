@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Elmuna - Daftar Desain Grafis')
+@section('title', 'Elmuna - Daftar Video Editing & Fotografi')
 @section('content')
     @if (Session::has('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <center>
-                <h3>Form Pendaftaran Kursus Desain Grafis</h3>
+                <h3>Form Pendaftaran Kursus Video Editing & Fotografi</h3>
             </center>
         </div>
         <div class="card-body">
@@ -23,7 +23,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/tambah-desain_grafis" method="post">
+            <form action="/tambah-video_editing_fotografi" method="post">
                 @csrf
                 <center>
                     <h5>Identitas Peserta</h5>
@@ -116,30 +116,28 @@
                 <div class="mb-3">
                     <label for="paket" class="form-label">Pilih Paket</label>
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_corel_draw" class="form-check-input"
-                            value="DESAIN GRAFIS COREL DRAW">
-                        <label for="desain_grafis_corel_draw" class="form-check-label">DESAIN GRAFIS COREL DRAW</label>
+                        <input type="checkbox" name="paket[]" id="video_editing_filmora" class="form-check-input"
+                            value="VIDEO EDITING FILMORA">
+                        <label for="video_editing_filmora" class="form-check-label">VIDEO EDITING FILMORA</label>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_adobe_photoshop"
-                            class="form-check-input" value="DESAIN GRAFIS ADOBE PHOTOSHOP">
-                        <label for="desain_grafis_adobe_photoshop" class="form-check-label">DESAIN GRAFIS ADOBE
-                            PHOTOSHOP</label>
+                        <input type="checkbox" name="paket[]" id="video_editing_capcut" class="form-check-input"
+                            value="VIDEO EDITING CAPCUT">
+                        <label for="video_editing_capcut" class="form-check-label">VIDEO EDITING CAPCUT</label>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_canva" class="form-check-input"
-                            value="DESAIN GRAFIS CANVA">
-                        <label for="desain_grafis_canva" class="form-check-label">DESAIN GRAFIS CANVA</label>
+                        <input type="checkbox" name="paket[]" id="fotografi" class="form-check-input"
+                            value="FOTOGRAFI">
+                        <label for="fotografi" class="form-check-label">FOTOGRAFI</label>
                     </div>
 
-                </div>
-                <div class="my-2">
-                    <center>
-                        <a href="/" class="btn btn-secondary">Kembali</a>
-                        <button type="reset" class="btn btn-danger mx-2">Batal</button>
-                        <button type="submit" class="btn btn-success">Kirim</button>
-                    </center>
-                </div>
+                    <div class="my-2">
+                        <center>
+                            <a href="/" class="btn btn-secondary">Kembali</a>
+                            <button type="reset" class="btn btn-danger mx-2">Batal</button>
+                            <button type="submit" class="btn btn-success">Kirim</button>
+                        </center>
+                    </div>
             </form>
         </div>
     </div>

@@ -2,90 +2,90 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\EditDesainGrafisRequest;
-use App\Http\Requests\TambahDesainGrafisRequest;
-use App\Models\DesainGrafis;
+use App\Http\Requests\EditBahasaInggrisRequest;
+use App\Http\Requests\TambahBahasaInggrisRequest;
+use App\Models\BahasaInggris;
 use Illuminate\Support\Facades\Session;
 
-class DesainGrafisController extends Controller
+class BahasaInggrisController extends Controller
 {
     function create()
     {
-        return view('pendaftaran.desain_grafis');
+        return view('pendaftaran.bahasa_inggris');
     }
 
 
-    function store(TambahDesainGrafisRequest $request)
+    function store(TambahBahasaInggrisRequest $request)
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = DesainGrafis::create($request->all());
+        $sql = BahasaInggris::create($request->all());
 
         if ($sql) {
             Session::flash('status', 'success');
             Session::flash('message', 'Anda [' . $request->nama . '] Berhasil Mendaftar!!!');
         }
 
-        return redirect('/daftar_desain_grafis');
+        return redirect('/daftar_bahasa_inggris');
     }
 
     function index()
     {
-        $data = DesainGrafis::get();
+        $data = BahasaInggris::get();
 
-        return view('admin.desain_grafis.desain_grafis', ['data' => $data]);
+        return view('admin.bahasa_inggris.bahasa_inggris', ['data' => $data]);
     }
 
     function edit($id)
     {
-        $data = DesainGrafis::where('id', $id)->get();
+        $data = BahasaInggris::where('id', $id)->get();
 
-        return view('admin.desain_grafis.edit-desain_grafis', ['data' => $data]);
+        return view('admin.bahasa_inggris.edit-bahasa_inggris', ['data' => $data]);
     }
 
-    function update(EditDesainGrafisRequest $request, $id)
+    function update(EditBahasaInggrisRequest $request, $id)
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = DesainGrafis::findOrFail($id);
+        $sql = BahasaInggris::findOrFail($id);
         $update = $sql->update($request->all());
         if ($update) {
             Session::flash('status', 'success');
             Session::flash('message', 'Edit Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_bahasa_inggris');
     }
 
     function delete($id)
     {
-        $data = DesainGrafis::findOrFail($id);
+        $data = BahasaInggris::findOrFail($id);
 
-        return view('admin.desain_grafis.hapus-desain_grafis', ['data' => $data]);
+        return view('admin.bahasa_inggris.hapus-bahasa_inggris', ['data' => $data]);
     }
 
     function destroy($id)
     {
-        $sql = DesainGrafis::findOrFail($id);
+        $sql = BahasaInggris::findOrFail($id);
         $delete = $sql->delete();
         if ($delete) {
             Session::flash('status', 'success');
             Session::flash('message', 'Hapus Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_bahasa_inggris');
     }
 
-    function deletedDesainGrafis()
+    function deletedBahasaInggris()
     {
-        $data = DesainGrafis::onlyTrashed()->get();
+        $data = BahasaInggris::onlyTrashed()->get();
 
-        return view('admin.desain_grafis.data-terhapus', ['data' => $data]);
+        return view('admin.bahasa_inggris.data-terhapus', ['data' => $data]);
     }
 
     function restoreData($id)
     {
-        $sql = DesainGrafis::withTrashed()
+        $sql = BahasaInggris::withTrashed()
             ->where('id', $id)
             ->restore();
 
@@ -94,20 +94,20 @@ class DesainGrafisController extends Controller
             Session::flash('message', 'Restore Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_bahasa_inggris');
     }
 
     function deletePermanen($id)
     {
-        $data = DesainGrafis::withTrashed()
+        $data = BahasaInggris::withTrashed()
             ->findOrFail($id);
 
-        return view('admin.desain_grafis.hapus-permanen', ['data' => $data]);
+        return view('admin.bahasa_inggris.hapus-permanen', ['data' => $data]);
     }
 
     function forceDelete($id)
     {
-        $sql = DesainGrafis::withTrashed()
+        $sql = BahasaInggris::withTrashed()
             ->findOrFail($id)
             ->forceDelete();
 
@@ -116,6 +116,6 @@ class DesainGrafisController extends Controller
             Session::flash('message', 'Berhasil Hapus Data Secara Permanen!!!');
         }
 
-        return redirect('/data_desain_grafis/terhapus');
+        return redirect('/data_bahasa_inggris/terhapus');
     }
 }

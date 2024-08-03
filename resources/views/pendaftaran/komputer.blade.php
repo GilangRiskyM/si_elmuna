@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Elmuna - Daftar Desain Grafis')
+@section('title', 'Elmuna - Daftar Komputer')
 @section('content')
     @if (Session::has('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <center>
-                <h3>Form Pendaftaran Kursus Desain Grafis</h3>
+                <h3>Form Pendaftaran Kursus Komputer</h3>
             </center>
         </div>
         <div class="card-body">
@@ -23,7 +23,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/tambah-desain_grafis" method="post">
+            <form action="/tambah-komputer" method="post">
                 @csrf
                 <center>
                     <h5>Identitas Peserta</h5>
@@ -116,21 +116,37 @@
                 <div class="mb-3">
                     <label for="paket" class="form-label">Pilih Paket</label>
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_corel_draw" class="form-check-input"
-                            value="DESAIN GRAFIS COREL DRAW">
-                        <label for="desain_grafis_corel_draw" class="form-check-label">DESAIN GRAFIS COREL DRAW</label>
+                        <input type="checkbox" name="paket[]" id="paket_ms_office_lengkap" class="form-check-input"
+                            value="PAKET MS. OFFICE LENGKAP">
+                        <label for="paket_ms_office_lengkap" class="form-check-label">PAKET MS. OFFICE LENGKAP</label>
                     </div>
+
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_adobe_photoshop"
-                            class="form-check-input" value="DESAIN GRAFIS ADOBE PHOTOSHOP">
-                        <label for="desain_grafis_adobe_photoshop" class="form-check-label">DESAIN GRAFIS ADOBE
-                            PHOTOSHOP</label>
+                        <input type="checkbox" name="paket[]" id="paket_ms_office_word" class="form-check-input"
+                            value="PAKET MS. OFFICE WORD">
+                        <label for="paket_ms_office_word" class="form-check-label">PAKET MS. OFFICE WORD</label>
                     </div>
+
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_canva" class="form-check-input"
-                            value="DESAIN GRAFIS CANVA">
-                        <label for="desain_grafis_canva" class="form-check-label">DESAIN GRAFIS CANVA</label>
+                        <input type="checkbox" name="paket[]" id="paket_ms_office_excel" class="form-check-input"
+                            value="PAKET MS. OFFICE EXCEL">
+                        <label for="paket_ms_office_excel" class="form-check-label">PAKET MS. OFFICE EXCEL</label>
                     </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" name="paket[]" id="paket_ms_office_power_point" class="form-check-input"
+                            value="PAKET MS. OFFICE POWER POINT">
+                        <label for="paket_ms_office_power_point" class="form-check-label">PAKET MS. OFFICE POWER
+                            POINT</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" name="paket[]" id="paket_ms_office_power_point_spesial"
+                            class="form-check-input" value="PAKET MS. OFFICE POWER POINT SPESIAL">
+                        <label for="paket_ms_office_power_point_spesial" class="form-check-label">PAKET MS. OFFICE POWER
+                            POINT SPESIAL</label>
+                    </div>
+
 
                 </div>
                 <div class="my-2">

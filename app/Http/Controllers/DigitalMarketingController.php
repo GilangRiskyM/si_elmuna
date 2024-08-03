@@ -2,90 +2,89 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\EditDesainGrafisRequest;
-use App\Http\Requests\TambahDesainGrafisRequest;
-use App\Models\DesainGrafis;
+use App\Http\Requests\EditDigitalMarketingRequest;
+use App\Http\Requests\TambahDigitalMarketingRequest;
+use App\Models\DigitalMarketing;
 use Illuminate\Support\Facades\Session;
 
-class DesainGrafisController extends Controller
+class DigitalMarketingController extends Controller
 {
     function create()
     {
-        return view('pendaftaran.desain_grafis');
+        return view('pendaftaran.digital_marketing');
     }
 
-
-    function store(TambahDesainGrafisRequest $request)
+    function store(TambahDigitalMarketingRequest $request)
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = DesainGrafis::create($request->all());
+        $sql = DigitalMarketing::create($request->all());
 
         if ($sql) {
             Session::flash('status', 'success');
             Session::flash('message', 'Anda [' . $request->nama . '] Berhasil Mendaftar!!!');
         }
 
-        return redirect('/daftar_desain_grafis');
+        return redirect('/daftar_digital_marketing');
     }
 
     function index()
     {
-        $data = DesainGrafis::get();
+        $data = DigitalMarketing::get();
 
-        return view('admin.desain_grafis.desain_grafis', ['data' => $data]);
+        return view('admin.digital_marketing.digital_marketing', ['data' => $data]);
     }
 
     function edit($id)
     {
-        $data = DesainGrafis::where('id', $id)->get();
+        $data = DigitalMarketing::where('id', $id)->get();
 
-        return view('admin.desain_grafis.edit-desain_grafis', ['data' => $data]);
+        return view('admin.digital_marketing.edit-digital_marketing', ['data' => $data]);
     }
 
-    function update(EditDesainGrafisRequest $request, $id)
+    function update(EditDigitalMarketingRequest $request, $id)
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = DesainGrafis::findOrFail($id);
+        $sql = DigitalMarketing::findOrFail($id);
         $update = $sql->update($request->all());
         if ($update) {
             Session::flash('status', 'success');
             Session::flash('message', 'Edit Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_digital_marketing');
     }
 
     function delete($id)
     {
-        $data = DesainGrafis::findOrFail($id);
+        $data = DigitalMarketing::findOrFail($id);
 
-        return view('admin.desain_grafis.hapus-desain_grafis', ['data' => $data]);
+        return view('admin.digital_marketing.hapus-digital_marketing', ['data' => $data]);
     }
 
     function destroy($id)
     {
-        $sql = DesainGrafis::findOrFail($id);
+        $sql = DigitalMarketing::findOrFail($id);
         $delete = $sql->delete();
         if ($delete) {
             Session::flash('status', 'success');
             Session::flash('message', 'Hapus Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_digital_marketing');
     }
 
-    function deletedDesainGrafis()
+    function deletedDigitalMarketing()
     {
-        $data = DesainGrafis::onlyTrashed()->get();
+        $data = DigitalMarketing::onlyTrashed()->get();
 
-        return view('admin.desain_grafis.data-terhapus', ['data' => $data]);
+        return view('admin.digital_marketing.data-terhapus', ['data' => $data]);
     }
 
     function restoreData($id)
     {
-        $sql = DesainGrafis::withTrashed()
+        $sql = DigitalMarketing::withTrashed()
             ->where('id', $id)
             ->restore();
 
@@ -94,20 +93,20 @@ class DesainGrafisController extends Controller
             Session::flash('message', 'Restore Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_digital_marketing');
     }
 
     function deletePermanen($id)
     {
-        $data = DesainGrafis::withTrashed()
+        $data = DigitalMarketing::withTrashed()
             ->findOrFail($id);
 
-        return view('admin.desain_grafis.hapus-permanen', ['data' => $data]);
+        return view('admin.digital_marketing.hapus-permanen', ['data' => $data]);
     }
 
     function forceDelete($id)
     {
-        $sql = DesainGrafis::withTrashed()
+        $sql = DigitalMarketing::withTrashed()
             ->findOrFail($id)
             ->forceDelete();
 
@@ -116,6 +115,6 @@ class DesainGrafisController extends Controller
             Session::flash('message', 'Berhasil Hapus Data Secara Permanen!!!');
         }
 
-        return redirect('/data_desain_grafis/terhapus');
+        return redirect('/data_digital_marketing/terhapus');
     }
 }

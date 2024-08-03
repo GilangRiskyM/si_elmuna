@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Elmuna - Daftar Desain Grafis')
+@section('title', 'Elmuna - Daftar Pemrograman')
 @section('content')
     @if (Session::has('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <center>
-                <h3>Form Pendaftaran Kursus Desain Grafis</h3>
+                <h3>Form Pendaftaran Kursus Pemrograman</h3>
             </center>
         </div>
         <div class="card-body">
@@ -23,7 +23,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/tambah-desain_grafis" method="post">
+            <form action="/tambah-pemrograman" method="post">
                 @csrf
                 <center>
                     <h5>Identitas Peserta</h5>
@@ -116,20 +116,24 @@
                 <div class="mb-3">
                     <label for="paket" class="form-label">Pilih Paket</label>
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_corel_draw" class="form-check-input"
-                            value="DESAIN GRAFIS COREL DRAW">
-                        <label for="desain_grafis_corel_draw" class="form-check-label">DESAIN GRAFIS COREL DRAW</label>
+                        <input type="checkbox" name="paket[]" id="pemrograman_web_dasar" class="form-check-input"
+                            value="PEMROGRAMAN WEB DASAR">
+                        <label for="pemrograman_web_dasar" class="form-check-label">PEMROGRAMAN WEB DASAR</label>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_adobe_photoshop"
-                            class="form-check-input" value="DESAIN GRAFIS ADOBE PHOTOSHOP">
-                        <label for="desain_grafis_adobe_photoshop" class="form-check-label">DESAIN GRAFIS ADOBE
-                            PHOTOSHOP</label>
+                        <input type="checkbox" name="paket[]" id="pemrograman_web_laravel" class="form-check-input"
+                            value="PEMROGRAMAN WEB LARAVEL">
+                        <label for="pemrograman_web_laravel" class="form-check-label">PEMROGRAMAN WEB LARAVEL</label>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" name="paket[]" id="desain_grafis_canva" class="form-check-input"
-                            value="DESAIN GRAFIS CANVA">
-                        <label for="desain_grafis_canva" class="form-check-label">DESAIN GRAFIS CANVA</label>
+                        <input type="checkbox" name="paket[]" id="javascript_dasar" class="form-check-input"
+                            value="JAVASCRIPT DASAR">
+                        <label for="javascript_dasar" class="form-check-label">JAVASCRIPT DASAR</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="paket[]" id="javascript_lanjutan" class="form-check-input"
+                            value="JAVASCRIPT LANJUTAN">
+                        <label for="javascript_lanjutan" class="form-check-label">JAVASCRIPT LANJUTAN</label>
                     </div>
 
                 </div>

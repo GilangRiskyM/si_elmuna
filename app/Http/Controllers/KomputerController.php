@@ -2,90 +2,89 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\EditDesainGrafisRequest;
-use App\Http\Requests\TambahDesainGrafisRequest;
-use App\Models\DesainGrafis;
+use App\Http\Requests\TambahKomputerRequest;
+use App\Http\Requests\EditKomputerRequest;
+use App\Models\Komputer;
 use Illuminate\Support\Facades\Session;
 
-class DesainGrafisController extends Controller
+class KomputerController extends Controller
 {
     function create()
     {
-        return view('pendaftaran.desain_grafis');
+        return view('pendaftaran.komputer');
     }
 
-
-    function store(TambahDesainGrafisRequest $request)
+    function store(TambahKomputerRequest $request)
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = DesainGrafis::create($request->all());
+        $sql = Komputer::create($request->all());
 
         if ($sql) {
             Session::flash('status', 'success');
             Session::flash('message', 'Anda [' . $request->nama . '] Berhasil Mendaftar!!!');
         }
 
-        return redirect('/daftar_desain_grafis');
+        return redirect('/daftar_komputer');
     }
 
     function index()
     {
-        $data = DesainGrafis::get();
+        $data = Komputer::get();
 
-        return view('admin.desain_grafis.desain_grafis', ['data' => $data]);
+        return view('admin.komputer.komputer', ['data' => $data]);
     }
 
     function edit($id)
     {
-        $data = DesainGrafis::where('id', $id)->get();
+        $data = Komputer::where('id', $id)->get();
 
-        return view('admin.desain_grafis.edit-desain_grafis', ['data' => $data]);
+        return view('admin.komputer.edit-komputer', ['data' => $data]);
     }
 
-    function update(EditDesainGrafisRequest $request, $id)
+    function update(EditKomputerRequest $request, $id)
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = DesainGrafis::findOrFail($id);
+        $sql = Komputer::findOrFail($id);
         $update = $sql->update($request->all());
         if ($update) {
             Session::flash('status', 'success');
             Session::flash('message', 'Edit Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_komputer');
     }
 
     function delete($id)
     {
-        $data = DesainGrafis::findOrFail($id);
+        $data = Komputer::findOrFail($id);
 
-        return view('admin.desain_grafis.hapus-desain_grafis', ['data' => $data]);
+        return view('admin.komputer.hapus-komputer', ['data' => $data]);
     }
 
     function destroy($id)
     {
-        $sql = DesainGrafis::findOrFail($id);
+        $sql = Komputer::findOrFail($id);
         $delete = $sql->delete();
         if ($delete) {
             Session::flash('status', 'success');
             Session::flash('message', 'Hapus Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_komputer');
     }
 
-    function deletedDesainGrafis()
+    function deletedKomputer()
     {
-        $data = DesainGrafis::onlyTrashed()->get();
+        $data = Komputer::onlyTrashed()->get();
 
-        return view('admin.desain_grafis.data-terhapus', ['data' => $data]);
+        return view('admin.komputer.data-terhapus', ['data' => $data]);
     }
 
     function restoreData($id)
     {
-        $sql = DesainGrafis::withTrashed()
+        $sql = Komputer::withTrashed()
             ->where('id', $id)
             ->restore();
 
@@ -94,20 +93,20 @@ class DesainGrafisController extends Controller
             Session::flash('message', 'Restore Data Berhasil!!!');
         }
 
-        return redirect('/data_desain_grafis');
+        return redirect('/data_komputer');
     }
 
     function deletePermanen($id)
     {
-        $data = DesainGrafis::withTrashed()
+        $data = Komputer::withTrashed()
             ->findOrFail($id);
 
-        return view('admin.desain_grafis.hapus-permanen', ['data' => $data]);
+        return view('admin.komputer.hapus-permanen', ['data' => $data]);
     }
 
     function forceDelete($id)
     {
-        $sql = DesainGrafis::withTrashed()
+        $sql = Komputer::withTrashed()
             ->findOrFail($id)
             ->forceDelete();
 
@@ -116,6 +115,6 @@ class DesainGrafisController extends Controller
             Session::flash('message', 'Berhasil Hapus Data Secara Permanen!!!');
         }
 
-        return redirect('/data_desain_grafis/terhapus');
+        return redirect('/data_komputer/terhapus');
     }
 }

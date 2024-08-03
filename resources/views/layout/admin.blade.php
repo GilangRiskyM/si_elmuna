@@ -8,21 +8,21 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Data Kursus | @yield('title')</title>
-    <link rel="icon" href="{{ asset('asset/img/icon1.png') }}" type="image/x-icon">
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+    <link rel="icon" href="/asset/img/icon1.png" type="image/x-icon">
+    <link href="/css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="{{ asset('js/scripts.js') }}"></script>
+    <script src="/js/scripts.js"></script>
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="/dashboard"><img src="{{ asset('asset/img/icon1.png') }}" alt=""
-                width="40" height="40"> {{ Auth::user()->name }}</a>
+        <a class="navbar-brand ps-3" href="/dashboard"><img src="/asset/img/icon1.png" alt="Logo" width="40"
+                height="40"> {{ Auth::user()->name }}</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
             <i class='bx bx-menu'></i>
@@ -41,24 +41,24 @@
                             Dashboard
                         </a>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#data_peserta" aria-expanded="false" aria-controls="data_peserta">
-                            <div class="sb-nav-link-icon"><i class='bx bxs-gas-pump'></i></div>
+                            data-bs-target="#dataPeserta" aria-expanded="false" aria-controls="dataPeserta">
+                            <div class="sb-nav-link-icon"><i class='bx bxs-folder'></i></div>
                             Data Peserta Kursus
                             <div class="sb-sidenav-collapse-arrow">
                                 <i class='bx bxs-chevron-down'></i>
                             </div>
                         </a>
-                        <div class="collapse" id="data_peserta" aria-labelledby="headingOne"
+                        <div class="collapse" id="dataPeserta" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="/data_mengemudi">Kursus Mengemudi</a>
                                 <a class="nav-link" href="/data_komputer">Kursus Komputer</a>
                                 <a class="nav-link" href="/data_digital_marketing">Kursus Digital Marketing</a>
-                                <a class="nav-link" href="/data_bahasa_inggris">Kursus Bahasa Inggris</a>
-                                <a class="nav-link" href="/data_pemrograman">Kursus Pemrograman</a>
-                                <a class="nav-link" href="/data_desain_grafis">Kursus Desain Grafis</a>
-                                <a class="nav-link" href="/data_video_editing_fotografi">
-                                    Kursus Video Editing dan Fotografi
+                                <a href="/data_bahasa_inggris" class="nav-link">Kursus Bahasa Inggris</a>
+                                <a href="/data_pemrograman" class="nav-link">Kursus Pemrograman</a>
+                                <a href="/data_desain_grafis" class="nav-link">Kursus Desain Grafis</a>
+                                <a href="/data_video_editing_fotografi" class="nav-link">
+                                    Kursus Video Editing & Fotografi
                                 </a>
                             </nav>
                         </div>
@@ -76,7 +76,7 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid px-4">
+                <div class="container-fluid px-4 my-3">
                     @yield('content')
                 </div>
             </main>

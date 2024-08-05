@@ -25,5 +25,6 @@ class DesainGrafis extends Model
         'email',
         'kecamatan',
         'paket',
+        'tanggal'
     ];
 }

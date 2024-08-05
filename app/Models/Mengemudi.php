@@ -25,6 +25,7 @@ class Mengemudi extends Model
         'email',
         'kecamatan',
         'paket',
+        'tanggal'
 
     ];
 }

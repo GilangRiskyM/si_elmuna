@@ -25,6 +25,7 @@ class BahasaInggris extends Model
         'email',
         'kecamatan',
         'paket',
+        'tanggal'
 
     ];
 }

@@ -25,6 +25,7 @@ class DigitalMarketing extends Model
         'email',
         'kecamatan',
         'paket',
+        'tanggal'
 
     ];
 }

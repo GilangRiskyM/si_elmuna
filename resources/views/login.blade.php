@@ -12,7 +12,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body class="bg-info">
+<body class="bg-dark">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
@@ -23,12 +23,12 @@
                                 <div class="card-header">
                                     <center>
                                         <a href="/">
-                                            <img src="/asset/img/elmuna.png" alt="Logo" width="50%">
+                                            <img src="/asset/img/elmuna.png" alt="Logo" width="70%">
                                         </a>
                                     </center>
-                                    <h5 class="text-center font-weight-light my-1">
+                                    <h3 class="text-center font-weight-light my-1">
                                         Sistem Pendaftaran Kursus Elmuna Kebumen
-                                    </h5>
+                                    </h3>
                                 </div>
                                 <div class="card-body">
                                     <form action="" method="POST">
@@ -43,14 +43,14 @@
                                         <div class="input-group mb-3">
                                             <div class="form-floating">
                                                 <input type="email" class="form-control" id="email" placeholder=""
-                                                    name="email">
+                                                    name="email" required>
                                                 <label for="email">Email</label>
                                             </div>
                                         </div>
                                         <div class="input-group mb-3">
                                             <div class="form-floating">
                                                 <input type="password" class="form-control" id="pw"
-                                                    placeholder="" name="password">
+                                                    placeholder="" name="password" required>
                                                 <label for="pw">Password</label>
                                             </div>
                                         </div>

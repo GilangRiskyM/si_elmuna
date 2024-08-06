@@ -17,7 +17,7 @@
     <hr>
     <div class="col-12 col-sm-8 col-md-4">
         <label for="" class="mb-2">Cari Data</label>
-        <form action="" method="get">
+        <form action="/data_mengemudi" method="get">
             <div class="input-group">
                 <input type="text" class="form-control ml-2" name="cari" placeholder="Kata Kunci" required>
                 <button type="submit" class="btn btn-primary"><i class='bx bx-search-alt-2'></i> Cari</button>
@@ -76,35 +76,45 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($data as $datum)
+                @if (count($data) > 0)
+                    @foreach ($data as $datum)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $datum->nik }}</td>
+                            <td>{{ $datum->nama }}</td>
+                            <td>{{ $datum->alamat }}</td>
+                            <td>{{ $datum->tempat_lahir }}</td>
+                            <td>{{ $datum->tanggal_lahir }}</td>
+                            <td>{{ $datum->jk }}</td>
+                            <td>{{ $datum->nama_ayah }}</td>
+                            <td>{{ $datum->nama_ibu }}</td>
+                            <td>{{ $datum->telepon }}</td>
+                            <td>{{ $datum->email }}</td>
+                            <td>{{ $datum->kecamatan }}</td>
+                            <td>
+                                @php
+                                    $paketan = json_decode($datum->paket);
+                                @endphp
+                                @foreach ($paketan as $paket)
+                                    {{ $paket }},
+                                @endforeach
+                            </td>
+                            <td>{{ tgl_indonesia3($datum->tanggal) }}</td>
+                            <td>
+                                <a href="/edit_mengemudi/{{ $datum->id }}" class="btn btn-warning">Edit</a>
+                                <a href="/hapus_mengemudi/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $datum->nik }}</td>
-                        <td>{{ $datum->nama }}</td>
-                        <td>{{ $datum->alamat }}</td>
-                        <td>{{ $datum->tempat_lahir }}</td>
-                        <td>{{ $datum->tanggal_lahir }}</td>
-                        <td>{{ $datum->jk }}</td>
-                        <td>{{ $datum->nama_ayah }}</td>
-                        <td>{{ $datum->nama_ibu }}</td>
-                        <td>{{ $datum->telepon }}</td>
-                        <td>{{ $datum->email }}</td>
-                        <td>{{ $datum->kecamatan }}</td>
-                        <td>
-                            @php
-                                $paketan = json_decode($datum->paket);
-                            @endphp
-                            @foreach ($paketan as $paket)
-                                {{ $paket }},
-                            @endforeach
-                        </td>
-                        <td>{{ tgl_indonesia3($datum->tanggal) }}</td>
-                        <td>
-                            <a href="/edit_mengemudi/{{ $datum->id }}" class="btn btn-warning">Edit</a>
-                            <a href="/hapus_mengemudi/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
+                        <td colspan="15">
+                            <center>
+                                <h3>Data Kosong</h3>
+                            </center>
                         </td>
                     </tr>
-                @endforeach
+                @endif
             </tbody>
         </table>
     </div>

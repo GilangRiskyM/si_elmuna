@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EditMengemudiRequest;
 use App\Http\Requests\TambahMengemudiRequest;
 use App\Models\Mengemudi;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -196,7 +195,7 @@ class MengemudiController extends Controller
 
         foreach ($sql as $data) {
             $sheet->setCellValue('A' . $rows, $no++);
-            $sheet->setCellValue('B' . $rows, $data->nik);
+            $sheet->setCellValue('B' . $rows, "'" . $data->nik);
             $sheet->setCellValue('C' . $rows, $data->nama);
             $sheet->setCellValue('D' . $rows, $data->alamat);
             $sheet->setCellValue('E' . $rows, $data->tempat_lahir);
@@ -228,7 +227,6 @@ class MengemudiController extends Controller
             }
 
             $sheet->setCellValue('M' . $rows, $paketString);
-
             $sheet->setCellValue('N' . $rows, $data->tanggal);
             $rows++;
         }

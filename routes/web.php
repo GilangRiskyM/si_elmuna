@@ -46,6 +46,8 @@ Route::delete('/force-delete-mengemudi/{id}', [MengemudiController::class, 'forc
 Route::get('/daftar_desain_grafis', [DesainGrafisController::class, 'create'])->middleware('guest');
 Route::post('/tambah-desain_grafis', [DesainGrafisController::class, 'store'])->middleware('guest');
 Route::get('/data_desain_grafis', [DesainGrafisController::class, 'index'])->middleware('auth');
+Route::get('/data_desain_grafis/filter', [DesainGrafisController::class, 'filterData'])->middleware('auth');
+Route::post('/data_desain_grafis/export', [DesainGrafisController::class, 'export'])->middleware('auth');
 Route::get('/edit_desain_grafis/{id}', [DesainGrafisController::class, 'edit'])->middleware('auth');
 Route::put('/update-desain_grafis/{id}', [DesainGrafisController::class, 'update'])->middleware('auth');
 Route::get('/hapus_desain_grafis/{id}', [DesainGrafisController::class, 'delete'])->middleware('auth');
@@ -58,6 +60,8 @@ Route::delete('/force-delete-desain_grafis/{id}', [DesainGrafisController::class
 Route::get('/daftar_bahasa_inggris', [BahasaInggrisController::class, 'create'])->middleware('guest');
 Route::post('/tambah-bahasa_inggris', [BahasaInggrisController::class, 'store'])->middleware('guest');
 Route::get('/data_bahasa_inggris', [BahasaInggrisController::class, 'index'])->middleware('auth');
+Route::get('/data_bahasa_inggris/filter', [BahasaInggrisController::class, 'filterData'])->middleware('auth');
+Route::post('/data_bahasa_inggris/export', [BahasaInggrisController::class, 'export'])->middleware('auth');
 Route::get('/edit_bahasa_inggris/{id}', [BahasaInggrisController::class, 'edit'])->middleware('auth');
 Route::put('/update-bahasa_inggris/{id}', [BahasaInggrisController::class, 'update'])->middleware('auth');
 Route::get('/hapus_bahasa_inggris/{id}', [BahasaInggrisController::class, 'delete'])->middleware('auth');
@@ -70,6 +74,8 @@ Route::delete('/force-delete-bahasa_inggris/{id}', [BahasaInggrisController::cla
 Route::get('/daftar_komputer', [KomputerController::class, 'create'])->middleware('guest');
 Route::post('/tambah-komputer', [KomputerController::class, 'store'])->middleware('guest');
 Route::get('/data_komputer', [KomputerController::class, 'index'])->middleware('auth');
+Route::get('/data_komputer/filter', [KomputerController::class, 'filterData'])->middleware('auth');
+Route::post('/data_komputer/export', [KomputerController::class, 'export'])->middleware('auth');
 Route::get('/edit_komputer/{id}', [KomputerController::class, 'edit'])->middleware('auth');
 Route::put('/update-komputer/{id}', [KomputerController::class, 'update'])->middleware('auth');
 Route::get('/hapus_komputer/{id}', [KomputerController::class, 'delete'])->middleware('auth');
@@ -82,6 +88,8 @@ Route::delete('/force-delete-komputer/{id}', [KomputerController::class, 'forceD
 Route::get('daftar_digital_marketing', [DigitalMarketingController::class, 'create'])->middleware('guest');
 Route::post('/tambah-digital_marketing', [DigitalMarketingController::class, 'store'])->middleware('guest');
 Route::get('/data_digital_marketing', [DigitalMarketingController::class, 'index'])->middleware('auth');
+Route::get('/data_digital_marketing/filter', [DigitalMarketingController::class, 'filterData'])->middleware('auth');
+Route::post('/data_digital_marketing/export', [DigitalMarketingController::class, 'export'])->middleware('auth');
 Route::get('/edit_digital_marketing/{id}', [DigitalMarketingController::class, 'edit'])->middleware('auth');
 Route::put('/update-digital_marketing/{id}', [DigitalMarketingController::class, 'update'])->middleware('auth');
 Route::get('/hapus_digital_marketing/{id}', [DigitalMarketingController::class, 'delete'])->middleware('auth');
@@ -94,6 +102,8 @@ Route::delete('/force-delete-digital_marketing/{id}', [DigitalMarketingControlle
 Route::get('daftar_pemrograman', [PemrogramanController::class, 'create'])->middleware('guest');
 Route::post('/tambah-pemrograman', [PemrogramanController::class, 'store'])->middleware('guest');
 Route::get('/data_pemrograman', [PemrogramanController::class, 'index'])->middleware('auth');
+Route::get('/data_pemrograman/filter', [PemrogramanController::class, 'filterData'])->middleware('auth');
+Route::post('/data_pemrograman/export', [PemrogramanController::class, 'export'])->middleware('auth');
 Route::get('/edit_pemrograman/{id}', [PemrogramanController::class, 'edit'])->middleware('auth');
 Route::put('/update-pemrograman/{id}', [PemrogramanController::class, 'update'])->middleware('auth');
 Route::get('/hapus_pemrograman/{id}', [PemrogramanController::class, 'delete'])->middleware('auth');
@@ -106,6 +116,8 @@ Route::delete('/force-delete-pemrograman/{id}', [PemrogramanController::class, '
 Route::get('daftar_video_editing_fotografi', [VideoFotoController::class, 'create'])->middleware('guest');
 Route::post('/tambah-video_editing_fotografi', [VideoFotoController::class, 'store'])->middleware('guest');
 Route::get('/data_video_editing_fotografi', [VideoFotoController::class, 'index'])->middleware('auth');
+Route::get('/data_video_editing_fotografi/filter', [VideoFotoController::class, 'filterData'])->middleware('auth');
+Route::post('/data_video_editing_fotografi/export', [VideoFotoController::class, 'export'])->middleware('auth');
 Route::get('/edit_video_editing_fotografi/{id}', [VideoFotoController::class, 'edit'])->middleware('auth');
 Route::put('/update-video_editing_fotografi/{id}', [VideoFotoController::class, 'update'])->middleware('auth');
 Route::get('/hapus_video_editing_fotografi/{id}', [VideoFotoController::class, 'delete'])->middleware('auth');

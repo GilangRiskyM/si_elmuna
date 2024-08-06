@@ -25,6 +25,7 @@ class VideoFoto extends Model
         'email',
         'kecamatan',
         'paket',
+        'tanggal'
 
     ];
 }

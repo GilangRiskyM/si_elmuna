@@ -14,7 +14,7 @@
         <a href="/data_video_editing_fotografi" class="btn btn-secondary">Kembali</a>
     </div>
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-hover">
             <thead>
                 <tr class="align-middle">
                     <th>No</th>

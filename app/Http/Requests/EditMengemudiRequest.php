@@ -24,15 +24,18 @@ class EditMengemudiRequest extends FormRequest
         return [
             'nik' => 'required|string|size:16',
             'nama' => 'required',
-            'alamat' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'jk' => 'required',
-            'nama_ayah' => 'required',
-            'nama_ibu' => 'required',
-            'telepon' => 'required|integer',
-            'email' => 'required',
+            'alamat' => 'required',
             'kecamatan' => 'required',
+            'kabupaten' => 'required',
+            'agama' => 'required',
+            'status' => 'required',
+            'nama_ibu' => 'required',
+            'nama_ayah' => 'required',
+            'telepon' => 'required',
+            'email' => 'required',
             'paket' => 'required'
         ];
     }
@@ -40,20 +43,21 @@ class EditMengemudiRequest extends FormRequest
     public function messages()
     {
         return [
-            'nik.size' => 'NIK harus 16 digit',
             'nik.required' => 'NIK wajib diisi',
-            'nik.integer' => 'NIK harus berupa angka',
+            'nik.size' => 'NIK harus 16 karakter',
             'nama.required' => 'Nama wajib diisi',
+            'tempat_lahir' => 'Tempat Lahir wajib diisi',
+            'tanggal_lahir.required' => 'Tanggal Lahir wajib diisi',
+            'jk.required' => 'Jenis Kelamin wajib diisi',
             'alamat.required' => 'Alamat wajib diisi',
-            'tempat_lahir.required' => 'Tempat lahir wajib diisi',
-            'tanggal_lahir.required' => 'Tanggal lahir wajib diisi',
-            'jk.required' => 'Jenis kelamin wajib diisi',
-            'nama_ayah.required' => 'Nama ayah wajib diisi',
-            'nama_ibu.required' => 'Nama ibu wajib diisi',
-            'telepon.required' => 'Nomor WA wajib diisi',
-            'telepon.integer' => 'Nomor WA harus berupa angka',
-            'email.required' => 'Email wajib diisi',
             'kecamatan.required' => 'Kecamatan wajib diisi',
+            'kabupaten.required' => 'Kabupaten wajib diisi',
+            'agama.required' => 'Agama wajib diisi',
+            'status.required' => 'Status wajib diisi',
+            'nama_ibu.required' => 'Nama Ibu wajib diisi',
+            'nama_ayah.required' => 'Nama Ayah wajib diisi',
+            'telepon.required' => 'Telepon wajib diisi',
+            'email.required' => 'Email wajib diisi',
             'paket.required' => 'Paket wajib diisi',
         ];
     }

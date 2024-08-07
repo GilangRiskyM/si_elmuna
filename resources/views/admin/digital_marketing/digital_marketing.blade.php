@@ -60,18 +60,22 @@
                 <tr class="align-middle">
                     <th>No</th>
                     <th>NIK</th>
+                    <th>NISN</th>
                     <th>Nama Peserta</th>
-                    <th>Alamat</th>
                     <th>Tempat Lahir</th>
                     <th>Tanggal Lahir</th>
                     <th>Jenis Kelamin</th>
-                    <th>Nama Ayah</th>
+                    <th>Alamat</th>
+                    <th>Kecamatan</th>
+                    <th>Kabupaten</th>
+                    <th>Agama</th>
+                    <th>Status</th>
                     <th>Nama Ibu</th>
+                    <th>Nama Ayah</th>
                     <th>No. WA</th>
                     <th>Email</th>
-                    <th>Kecamatan</th>
-                    <th>Paket</th>
                     <th>Tanggal Mendaftar</th>
+                    <th>Paket</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -81,16 +85,21 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $datum->nik }}</td>
+                            <td>{{ $datum->nisn }}</td>
                             <td>{{ $datum->nama }}</td>
-                            <td>{{ $datum->alamat }}</td>
                             <td>{{ $datum->tempat_lahir }}</td>
                             <td>{{ $datum->tanggal_lahir }}</td>
                             <td>{{ $datum->jk }}</td>
-                            <td>{{ $datum->nama_ayah }}</td>
+                            <td>{{ $datum->alamat }}</td>
+                            <td>{{ $datum->kecamatan }}</td>
+                            <td>{{ $datum->kabupaten }}</td>
+                            <td>{{ $datum->agama }}</td>
+                            <td>{{ $datum->status }}</td>
                             <td>{{ $datum->nama_ibu }}</td>
+                            <td>{{ $datum->nama_ayah }}</td>
                             <td>{{ $datum->telepon }}</td>
                             <td>{{ $datum->email }}</td>
-                            <td>{{ $datum->kecamatan }}</td>
+                            <td>{{ tgl_indonesia3($datum->created_at) }}</td>
                             <td>
                                 @php
                                     $paketan = json_decode($datum->paket);
@@ -99,7 +108,6 @@
                                     {{ $paket }},
                                 @endforeach
                             </td>
-                            <td>{{ tgl_indonesia3($datum->tanggal) }}</td>
                             <td>
                                 <a href="/edit_digital_marketing/{{ $datum->id }}" class="btn btn-warning">Edit</a>
                                 <a href="/hapus_digital_marketing/{{ $datum->id }}"
@@ -109,7 +117,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="15">
+                        <td colspan="19">
                             <center>
                                 <h3>Data Kosong</h3>
                             </center>

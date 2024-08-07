@@ -17,39 +17,49 @@
         <table class="table table-bordered">
             <thead>
                 <tr class="align-middle">
-                    <th scope="col">No</th>
-                    <th scope="col">NIK</th>
-                    <th scope="col">Nama Peserta</th>
-                    <th scope="col">Alamat</th>
-                    <th scope="col">Tempat Lahir</th>
-                    <th scope="col">Tanggal Lahir</th>
-                    <th scope="col">Jenis Kelamin</th>
-                    <th scope="col">Nama Ayah</th>
-                    <th scope="col">Nama Ibu</th>
-                    <th scope="col">No. WA</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Kecamatan</th>
-                    <th scope="col">Paket</th>
-                    <th scope="col">Aksi</th>
+                    <th>No</th>
+                    <th>NIK</th>
+                    <th>NISN</th>
+                    <th>Nama Peserta</th>
+                    <th>Tempat Lahir</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Alamat</th>
+                    <th>Kecamatan</th>
+                    <th>Kabupaten</th>
+                    <th>Agama</th>
+                    <th>Status</th>
+                    <th>Nama Ibu</th>
+                    <th>Nama Ayah</th>
+                    <th>No. WA</th>
+                    <th>Email</th>
+                    <th>Tanggal Mendaftar</th>
+                    <th>Paket</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @if (count($data) > 0)
                     @foreach ($data as $datum)
                         <tr>
-                            <td scope="row">{{ $loop->iteration }}</td>
-                            <td scope="row">{{ $datum->nik }}</td>
-                            <td scope="row">{{ $datum->nama }}</td>
-                            <td scope="row">{{ $datum->alamat }}</td>
-                            <td scope="row">{{ $datum->tempat_lahir }}</td>
-                            <td scope="row">{{ $datum->tanggal_lahir }}</td>
-                            <td scope="row">{{ $datum->jk }}</td>
-                            <td scope="row">{{ $datum->nama_ayah }}</td>
-                            <td scope="row">{{ $datum->nama_ibu }}</td>
-                            <td scope="row">{{ $datum->telepon }}</td>
-                            <td scope="row">{{ $datum->email }}</td>
-                            <td scope="row">{{ $datum->kecamatan }}</td>
-                            <td scope="row">
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $datum->nik }}</td>
+                            <td>{{ $datum->nisn }}</td>
+                            <td>{{ $datum->nama }}</td>
+                            <td>{{ $datum->tempat_lahir }}</td>
+                            <td>{{ $datum->tanggal_lahir }}</td>
+                            <td>{{ $datum->jk }}</td>
+                            <td>{{ $datum->alamat }}</td>
+                            <td>{{ $datum->kecamatan }}</td>
+                            <td>{{ $datum->kabupaten }}</td>
+                            <td>{{ $datum->agama }}</td>
+                            <td>{{ $datum->status }}</td>
+                            <td>{{ $datum->nama_ibu }}</td>
+                            <td>{{ $datum->nama_ayah }}</td>
+                            <td>{{ $datum->telepon }}</td>
+                            <td>{{ $datum->email }}</td>
+                            <td>{{ tgl_indonesia3($datum->created_at) }}</td>
+                            <td>
                                 @php
                                     $paketan = json_decode($datum->paket);
                                 @endphp

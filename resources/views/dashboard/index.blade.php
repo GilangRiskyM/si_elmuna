@@ -12,7 +12,7 @@
     <div class="row mt-4">
         <div class="col-lg-3 mb-3" data-aos="flip-right">
             <div class="card shadow">
-                <img src="/asset/img/mobil.png" class="card-img-top post-img" alt="Pemrograman">
+                <img src="/asset/img/mobil.png" class="card-img-top post-img" alt="...">
                 <div class="card-body">
                     <div class="card-text">
                         <center>
@@ -48,7 +48,7 @@
         </div>
         <div class="col-lg-3 mb-3" data-aos="flip-left">
             <div class="card shadow">
-                <img src="/asset/img/programkomputer.png" class="card-img-top post-img" alt="Pemrograman">
+                <img src="/asset/img/programkomputer.png" class="card-img-top post-img" alt="...">
                 <div class="card-body">
                     <div class="card-text">
                         <center>
@@ -84,7 +84,7 @@
         </div>
         <div class="col-lg-3 mb-3" data-aos="flip-right">
             <div class="card shadow">
-                <img src="/asset/img/digitalmarketing.png" class="card-img-top post-img" alt="Pemrograman">
+                <img src="/asset/img/digitalmarketing.png" class="card-img-top post-img" alt="...">
                 <div class="card-body">
                     <div class="card-text">
                         <center>
@@ -120,7 +120,7 @@
         </div>
         <div class="col-lg-3 mb-3" data-aos="flip-left">
             <div class="card shadow">
-                <img src="/asset/img/bahasainggris.png" class="card-img-top post-img" alt="Pemrograman">
+                <img src="/asset/img/bahasainggris.png" class="card-img-top post-img" alt="...">
                 <div class="card-body">
                     <div class="card-text">
                         <center>
@@ -156,7 +156,7 @@
         </div>
         <div class="col-lg-3 mb-3" data-aos="flip-right">
             <div class="card shadow">
-                <img src="/asset/img/koding.png" class="card-img-top post-img" alt="Pemrograman">
+                <img src="/asset/img/koding.png" class="card-img-top post-img" alt="...">
                 <div class="card-body">
                     <div class="card-text">
                         <center>

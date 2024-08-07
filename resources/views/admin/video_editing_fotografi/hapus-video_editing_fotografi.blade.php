@@ -16,14 +16,14 @@
                         <td>{{ $data->nik }}</td>
                     </tr>
                     <tr>
+                        <td>NISN</td>
+                        <td>:</td>
+                        <td>{{ $data->nisn }}</td>
+                    </tr>
+                    <tr>
                         <td>Nama Lengkap</td>
                         <td>:</td>
                         <td>{{ $data->nama }}</td>
-                    </tr>
-                    <tr>
-                        <td>Alamat</td>
-                        <td>:</td>
-                        <td>{{ $data->alamat }}</td>
                     </tr>
                     <tr>
                         <td>Tempat Lahir</td>
@@ -41,14 +41,39 @@
                         <td>{{ $data->jk }}</td>
                     </tr>
                     <tr>
-                        <td>Nama Ayah</td>
+                        <td>Alamat</td>
                         <td>:</td>
-                        <td>{{ $data->nama_ayah }}</td>
+                        <td>{{ $data->alamat }}</td>
+                    </tr>
+                    <tr>
+                        <td>Kecamatan</td>
+                        <td>:</td>
+                        <td>{{ $data->kecamatan }}</td>
+                    </tr>
+                    <tr>
+                        <td>Kabupaten</td>
+                        <td>:</td>
+                        <td>{{ $data->kabupaten }}</td>
+                    </tr>
+                    <tr>
+                        <td>Agama</td>
+                        <td>:</td>
+                        <td>{{ $data->agama }}</td>
+                    </tr>
+                    <tr>
+                        <td>Status Pekerjaan</td>
+                        <td>:</td>
+                        <td>{{ $data->status }}</td>
                     </tr>
                     <tr>
                         <td>Nama Ibu</td>
                         <td>:</td>
                         <td>{{ $data->nama_ibu }}</td>
+                    </tr>
+                    <tr>
+                        <td>Nama Ayah</td>
+                        <td>:</td>
+                        <td>{{ $data->nama_ayah }}</td>
                     </tr>
                     <tr>
                         <td>No. WA</td>
@@ -59,11 +84,6 @@
                         <td>Email</td>
                         <td>:</td>
                         <td>{{ $data->email }}</td>
-                    </tr>
-                    <tr>
-                        <td>Kecamatan</td>
-                        <td>:</td>
-                        <td>{{ $data->kecamatan }}</td>
                     </tr>
                     <tr>
                         <td>Paket</td>

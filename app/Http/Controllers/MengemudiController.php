@@ -20,7 +20,6 @@ class MengemudiController extends Controller
     function store(TambahMengemudiRequest $request)
     {
         $request->validated();
-        $request['tanggal'] = date('Y-m-d');
         $request['paket'] = json_encode($request->paket);
         $sql = Mengemudi::create($request->all());
 
@@ -39,16 +38,21 @@ class MengemudiController extends Controller
         if (isset($request->cari)) {
             $data = Mengemudi::orderBy('id', 'desc')
                 ->where('nik', 'LIKE', '%' . $cari . '%')
+                ->orWhere('nisn', 'LIKE', '%' . $cari . '%')
                 ->orWhere('nama', 'LIKE', '%' . $cari . '%')
-                ->orWhere('alamat', 'LIKE', '%' . $cari . '%')
                 ->orWhere('tempat_lahir', 'LIKE', '%' . $cari . '%')
                 ->orWhere('tanggal_lahir', 'LIKE', '%' . $cari . '%')
                 ->orWhere('jk', 'LIKE', '%' . $cari . '%')
-                ->orWhere('nama_ayah', 'LIKE', '%' . $cari . '%')
+                ->orWhere('alamat', 'LIKE', '%' . $cari . '%')
+                ->orWhere('kecamatan', 'LIKE', '%' . $cari . '%')
+                ->orWhere('kabupaten', 'LIKE', '%' . $cari . '%')
+                ->orWhere('agama', 'LIKE', '%' . $cari . '%')
+                ->orWhere('status', 'LIKE', '%' . $cari . '%')
                 ->orWhere('nama_ibu', 'LIKE', '%' . $cari . '%')
+                ->orWhere('nama_ayah', 'LIKE', '%' . $cari . '%')
                 ->orWhere('telepon', 'LIKE', '%' . $cari . '%')
                 ->orWhere('email', 'LIKE', '%' . $cari . '%')
-                ->orWhere('kecamatan', 'LIKE', '%' . $cari . '%')
+                ->orWhere('created_at', 'LIKE', '%' . $cari . '%')
                 ->orWhere('paket', 'LIKE', '%' . $cari . '%')
                 ->get();
         } else {
@@ -64,8 +68,8 @@ class MengemudiController extends Controller
         $end_date = $request->tgl_akhir;
 
         $data = Mengemudi::orderBy('id', 'desc')
-            ->whereDate('tanggal', '>=', $start_date)
-            ->whereDate('tanggal', '<=', $end_date)
+            ->whereDate('created_at', '>=', $start_date)
+            ->whereDate('created_at', '<=', $end_date)
             ->get();
 
         return view('admin.mengemudi.mengemudi', ['data' => $data]);
@@ -160,8 +164,8 @@ class MengemudiController extends Controller
         $end_date = $request->tgl_akhir;
 
         $sql = Mengemudi::orderBy('id', 'desc')
-            ->whereDate('tanggal', '>=', $start_date)
-            ->whereDate('tanggal', '<=', $end_date)
+            ->whereDate('created_at', '>=', $start_date)
+            ->whereDate('created_at', '<=', $end_date)
             ->get();
 
         $laki_laki = Mengemudi::where('jk', 'Laki-laki')->count();
@@ -172,40 +176,49 @@ class MengemudiController extends Controller
 
         $sheet->setCellValue('A1', 'No');
         $sheet->setCellValue('B1', 'NIK');
-        $sheet->setCellValue('C1', 'Nama');
-        $sheet->setCellValue('D1', 'Alamat');
+        $sheet->setCellValue('C1', 'NISN');
+        $sheet->setCellValue('D1', 'Nama');
         $sheet->setCellValue('E1', 'Tempat Lahir');
         $sheet->setCellValue('F1', 'Tanggal Lahir');
         $sheet->setCellValue('G1', 'Jenis Kelamin');
-        $sheet->setCellValue('H1', 'Nama Ayah');
-        $sheet->setCellValue('I1', 'Nama Ibu');
-        $sheet->setCellValue('J1', 'No. WA');
-        $sheet->setCellValue('K1', 'Email');
-        $sheet->setCellValue('L1', 'Kecamatan');
-        $sheet->setCellValue('M1', 'paket');
-        $sheet->setCellValue('N1', 'Tanggal Mendaftar');
-        $sheet->setCellValue('O1', 'Jumlah Peserta Laki-laki');
-        $sheet->setCellValue('P1', 'Jumlah Peserta Perempuan');
+        $sheet->setCellValue('H1', 'Alamat');
+        $sheet->setCellValue('I1', 'Kecamatan');
+        $sheet->setCellValue('J1', 'Kabupaten');
+        $sheet->setCellValue('K1', 'Agama');
+        $sheet->setCellValue('L1', 'Status Pekerjaan');
+        $sheet->setCellValue('M1', 'Nama Ibu');
+        $sheet->setCellValue('N1', 'Nama Ayah');
+        $sheet->setCellValue('O1', 'No. WA');
+        $sheet->setCellValue('P1', 'Email');
+        $sheet->setCellValue('Q1', 'Tanggal Mendaftar');
+        $sheet->setCellValue('R1', 'Paket');
+        $sheet->setCellValue('S1', 'Jumlah Peserta Laki-laki');
+        $sheet->setCellValue('T1', 'Jumlah Peserta Perempuan');
 
         $no = 1;
         $rows = 2;
 
 
-        $filename = "Laporan Daftar Peserta Mengemudi " . date($start_date) . " sampai " . date($end_date) . ".xlsx";
+        $filename = "Laporan Daftar Peserta Bahasa Inggris " . date($start_date) . " sampai " . date($end_date) . ".xlsx";
 
         foreach ($sql as $data) {
             $sheet->setCellValue('A' . $rows, $no++);
             $sheet->setCellValue('B' . $rows, "'" . $data->nik);
-            $sheet->setCellValue('C' . $rows, $data->nama);
-            $sheet->setCellValue('D' . $rows, $data->alamat);
+            $sheet->setCellValue('C' . $rows, $data->nisn);
+            $sheet->setCellValue('D' . $rows, $data->nama);
             $sheet->setCellValue('E' . $rows, $data->tempat_lahir);
             $sheet->setCellValue('F' . $rows, $data->tanggal_lahir);
             $sheet->setCellValue('G' . $rows, $data->jk);
-            $sheet->setCellValue('H' . $rows, $data->nama_ayah);
-            $sheet->setCellValue('I' . $rows, $data->nama_ibu);
-            $sheet->setCellValue('J' . $rows, $data->telepon);
-            $sheet->setCellValue('K' . $rows, $data->email);
-            $sheet->setCellValue('L' . $rows, $data->kecamatan);
+            $sheet->setCellValue('H' . $rows, $data->alamat);
+            $sheet->setCellValue('I' . $rows, $data->kecamatan);
+            $sheet->setCellValue('J' . $rows, $data->kabupaten);
+            $sheet->setCellValue('K' . $rows, $data->agama);
+            $sheet->setCellValue('L' . $rows, $data->status);
+            $sheet->setCellValue('M' . $rows, $data->nama_ibu);
+            $sheet->setCellValue('N' . $rows, $data->nama_ayah);
+            $sheet->setCellValue('O' . $rows, $data->telepon);
+            $sheet->setCellValue('P' . $rows, $data->email);
+            $sheet->setCellValue('Q' . $rows, date_format($data->created_at, 'Y/m/d'));
 
             // Decode the JSON paket
             $paket = json_decode($data->paket, true);
@@ -226,13 +239,12 @@ class MengemudiController extends Controller
                 $paketString = 'Invalid JSON';
             }
 
-            $sheet->setCellValue('M' . $rows, $paketString);
-            $sheet->setCellValue('N' . $rows, $data->tanggal);
+            $sheet->setCellValue('R' . $rows, $paketString);
             $rows++;
         }
 
-        $sheet->setCellValue('O2', $laki_laki);
-        $sheet->setCellValue('P2', $perempuan);
+        $sheet->setCellValue('S2', $laki_laki);
+        $sheet->setCellValue('T2', $perempuan);
 
         $writer = new Xlsx($spreadsheet);
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');

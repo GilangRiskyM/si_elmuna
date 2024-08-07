@@ -30,17 +30,15 @@
                 </center>
                 <div class="mb-3">
                     <label for="nik" class="form-label">NIK</label>
-                    <input type="text" name="nik" id="nik" class="form-control" aria-describedby="nikHelp"
-                        value="{{ old('nik') }}">
-                    <div id="nikHelp" class="form-text">NIK wajib 16 digit berupa angka</div>
+                    <input type="text" name="nik" id="nik" class="form-control" value="{{ old('nik') }}">
+                </div>
+                <div class="mb-3">
+                    <label for="nisn" class="form-label">NISN</label>
+                    <input type="text" name="nisn" id="nisn" class="form-control" value="{{ old('nisn') }}">
                 </div>
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama Lengkap</label>
                     <input type="text" name="nama" id="nama" class="form-control" value="{{ old('nama') }}">
-                </div>
-                <div class="mb-3">
-                    <label for="alamat" class="form-label">Alamat</label>
-                    <input type="text" name="alamat" id="alamat" class="form-control" value="{{ old('alamat') }}">
                 </div>
                 <div class="mb-3">
                     <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
@@ -62,56 +60,53 @@
                     </select>
                 </div>
                 <div class="mb-3">
+                    <label for="alamat" class="form-label">Alamat</label>
+                    <input type="text" name="alamat" id="alamat" class="form-control" value="{{ old('alamat') }}">
+                </div>
+                <div class="mb-3">
+                    <label for="kecamatan" class="form-label">Kecamatan</label>
+                    <input type="text" name="kecamatan" id="kecamatan" class="form-control"
+                        value="{{ old('kecamatan') }}">
+                </div>
+                <div class="mb-3">
+                    <label for="kabupaten" class="form-label">Kabupaten</label>
+                    <input type="text" name="kabupaten" id="kabupaten" class="form-control"
+                        value="{{ old('kabupaten') }}">
+                </div>
+                <div class="mb-3">
+                    <label for="agama" class="form-label">Agama</label>
+                    <input type="text" name="agama" id="agama" class="form-control" value="{{ old('agama') }}">
+                </div>
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status Pekerjaan</label>
+                    <select name="status" id="status" class="form-select select2"
+                        data-placeholder="Pilih Status Pekerjaan">
+                        <option></option>
+                        <option>Bekerja</option>
+                        <option>Pelajar/Mahasiswa</option>
+                        <option>Tidak Bekerja</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="nama_ibu" class="form-label">Nama Ibu</label>
+                    <input type="text" name="nama_ibu" id="nama_ibu" class="form-control"
+                        value="{{ old('nama_ibu') }}">
+                </div>
+                <div class="mb-3">
                     <label for="nama_ayah" class="form-label">Nama Ayah</label>
                     <input type="text" name="nama_ayah" id="nama_ayah" class="form-control"
                         value="{{ old('nama_ayah') }}">
                 </div>
                 <div class="mb-3">
-                    <label for="nama_ibu" class="form-label">Nama Ibu</label>
-                    <input type="text" name="nama_ibu" id="nama_ibu" class="form-control" value="{{ old('nama_ibu') }}">
-                </div>
-                <div class="mb-3">
                     <label for="telepon" class="form-label">No. WA</label>
-                    <input type="text" name="telepon" id="telepon" class="form-control" aria-describedby="teleponHelp"
-                        value="{{ old('telepon') }}" placeholder="Ganti 08 menjadi 628">
+                    <input type="text" name="telepon" id="telepon" class="form-control"
+                        aria-describedby="teleponHelp" value="{{ old('telepon') }}" placeholder="Ganti 08 menjadi 628">
                     <div id="teleponHelp" class="form-text">Misal 08131111222 menjadi 6281311112222</div>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}">
-                </div>
-                <div class="mb-3">
-                    <label for="kecamatan" class="form-label">Kecamatan</label>
-                    <select name="kecamatan" id="kecamatan" class="form-select select2"
-                        data-placeholder="Pilih Kecamatan">
-                        <option></option>
-                        <option>Adimulyo</option>
-                        <option>Alian</option>
-                        <option>Ambal</option>
-                        <option>Ayah</option>
-                        <option>Bonorowo</option>
-                        <option>Buayan</option>
-                        <option>Buluspesantren</option>
-                        <option>Gombong</option>
-                        <option>Karanganyar</option>
-                        <option>Karanggayam</option>
-                        <option>Karangsambung</option>
-                        <option>Kebumen</option>
-                        <option>Klirong</option>
-                        <option>Kutowinangun</option>
-                        <option>Kuwarasan</option>
-                        <option>Mirit</option>
-                        <option>Padureso</option>
-                        <option>Pejagoan</option>
-                        <option>Petanahan</option>
-                        <option>Poncowarno</option>
-                        <option>Prembun</option>
-                        <option>Puring</option>
-                        <option>Rowokele</option>
-                        <option>Sadang</option>
-                        <option>Sempor</option>
-                        <option>Sruweng</option>
-                    </select>
+                    <input type="email" name="email" id="email" class="form-control"
+                        value="{{ old('email') }}">
                 </div>
                 <div class="mb-3">
                     <label for="paket" class="form-label">Pilih Paket</label>
@@ -138,6 +133,7 @@
                             <button type="submit" class="btn btn-success">Kirim</button>
                         </center>
                     </div>
+                </div>
             </form>
         </div>
     </div>

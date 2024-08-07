@@ -14,18 +14,21 @@ return new class extends Migration
         Schema::create('daftar_komputer', function (Blueprint $table) {
             $table->id();
             $table->string('nik');
+            $table->string('nisn')->nullable();
             $table->string('nama');
-            $table->string('alamat');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('jk');
-            $table->string('nama_ayah');
+            $table->string('alamat');
+            $table->string('kecamatan');
+            $table->string('kabupaten');
+            $table->string('agama');
+            $table->string('status');
             $table->string('nama_ibu');
+            $table->string('nama_ayah');
             $table->string('telepon');
             $table->string('email');
-            $table->string('kecamatan');
             $table->string('paket');
-            $table->string('tanggal');
             $table->timestamps();
             $table->softDeletes();
         });

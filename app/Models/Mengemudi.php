@@ -14,18 +14,20 @@ class Mengemudi extends Model
 
     protected $fillable = [
         'nik',
+        'nisn',
         'nama',
-        'alamat',
         'tempat_lahir',
         'tanggal_lahir',
         'jk',
-        'nama_ayah',
+        'alamat',
+        'kecamatan',
+        'kabupaten',
+        'agama',
+        'status',
         'nama_ibu',
+        'nama_ayah',
         'telepon',
         'email',
-        'kecamatan',
-        'paket',
-        'tanggal'
-
+        'paket'
     ];
 }

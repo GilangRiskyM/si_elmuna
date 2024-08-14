@@ -1,4 +1,5 @@
 @extends('layout.admin')
+@include('fungsi.fungsi_tgl_indo')
 @section('title', 'Elmuna - Data Video Editing & Fotografi')
 @section('content')
     <center>

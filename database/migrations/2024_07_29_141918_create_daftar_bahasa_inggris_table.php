@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('kecamatan');
             $table->string('kabupaten');
+            $table->string('kode_pos');
             $table->string('agama');
             $table->string('status');
             $table->string('nama_ibu');
@@ -29,6 +30,8 @@ return new class extends Migration
             $table->string('telepon');
             $table->string('email');
             $table->string('paket');
+            $table->date('tgl_mulai')->nullable();
+            $table->date('tgl_selesai')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

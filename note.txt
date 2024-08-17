@@ -1,1 +1,2 @@
-tambah kode pos, tgl mulai dan tgl selesai kursus
+sing kurang ring bagian hapus, hapus permanen, kabeh controller bagian cari ro export
+kode pos, tgl mulai dan tgl selesai kursus

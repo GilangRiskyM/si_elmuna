@@ -27,7 +27,7 @@
                                         </a>
                                     </center>
                                     <h3 class="text-center font-weight-light my-1">
-                                        Sistem Pendaftaran Kursus Elmuna Kebumen
+                                        Login SISPEN Kursus <br> ELMUNA KEBUMEN
                                     </h3>
                                 </div>
                                 <div class="card-body">

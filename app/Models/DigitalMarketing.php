@@ -22,13 +22,16 @@ class DigitalMarketing extends Model
         'alamat',
         'kecamatan',
         'kabupaten',
+        'kode_pos',
         'agama',
         'status',
         'nama_ibu',
         'nama_ayah',
         'telepon',
         'email',
-        'paket'
+        'paket',
+        'tgl_mulai',
+        'tgl_selesai',
 
     ];
 }

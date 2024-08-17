@@ -78,8 +78,14 @@
                         value="{{ $data[0]->kabupaten }}">
                 </div>
                 <div class="mb-3">
+                    <label for="kode_pos" class="form-label">Kode Pos</label>
+                    <input type="text" class="form-control" name="kode_pos" id="kode_pos"
+                        value="{{ $data[0]->kode_pos }}">
+                </div>
+                <div class="mb-3">
                     <label for="agama" class="form-label">Agama</label>
-                    <input type="text" class="form-control" name="agama" id="agama" value="{{ $data[0]->agama }}">
+                    <input type="text" class="form-control" name="agama" id="agama"
+                        value="{{ $data[0]->agama }}">
                 </div>
                 <div class="mb-3">
                     <label for="status" class="form-label">Status Pekerjaan</label>
@@ -122,7 +128,6 @@
                             {{ in_array('PAKET MS. OFFICE LENGKAP', $paket) ? 'checked' : '' }}>
                         <label for="paket_ms_office_lengkap" class="form-check-label">PAKET MS. OFFICE LENGKAP</label>
                     </div>
-
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="paket_ms_office_word" class="form-check-input"
                             value="PAKET MS. OFFICE WORD"
@@ -136,7 +141,6 @@
                             {{ in_array('PAKET MS. OFFICE EXCEL', $paket) ? 'checked' : '' }}>
                         <label for="paket_ms_office_exel" class="form-check-label">PAKET MS. OFFICE EXCEL</label>
                     </div>
-
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="paket_ms_office_power_point" class="form-check-input"
                             value="PAKET MS. OFFICE POWER POINT"
@@ -144,7 +148,6 @@
                         <label for="paket_ms_office_power_point" class="form-check-label">PAKET MS. OFFICE POWER
                             POINT</label>
                     </div>
-
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="paket_ms_office_power_point_spesial"
                             class="form-check-input" value="PAKET MS. OFFICE POWER POINT SPESIAL"
@@ -152,6 +155,16 @@
                         <label for="paket_ms_office_power_point_spesial" class="form-check-label">PAKET MS. OFFICE POWER
                             POINT SPESIAL</label>
                     </div>
+                </div>
+                <div class="mb-3">
+                    <label for="tgl_mulai" class="form-label">Tanggal Mulai Kursus</label>
+                    <input type="date" class="form-control" name="tgl_mulai" id="tgl_mulai"
+                        value="{{ $data[0]->tgl_mulai }}">
+                </div>
+                <div class="mb-3">
+                    <label for="tgl_selesai" class="form-label">Tanggal Selesai Kursus</label>
+                    <input type="date" class="form-control" name="tgl_selesai" id="tgl_selesai"
+                        value="{{ $data[0]->tgl_selesai }}">
                 </div>
                 <div class="my-2">
                     <center>

@@ -78,8 +78,14 @@
                         value="{{ $data[0]->kabupaten }}">
                 </div>
                 <div class="mb-3">
+                    <label for="kode_pos" class="form-label">Kode Pos</label>
+                    <input type="text" class="form-control" name="kode_pos" id="kode_pos"
+                        value="{{ $data[0]->kode_pos }}">
+                </div>
+                <div class="mb-3">
                     <label for="agama" class="form-label">Agama</label>
-                    <input type="text" class="form-control" name="agama" id="agama" value="{{ $data[0]->agama }}">
+                    <input type="text" class="form-control" name="agama" id="agama"
+                        value="{{ $data[0]->agama }}">
                 </div>
                 <div class="mb-3">
                     <label for="status" class="form-label">Status Pekerjaan</label>
@@ -146,6 +152,16 @@
                             {{ in_array('PAKET MATIC 2 (MAHIR)', $paket) ? 'checked' : '' }}>
                         <label for="paket_matic_2" class="form-check-label">PAKET MATIC 2 (MAHIR)</label>
                     </div>
+                </div>
+                <div class="mb-3">
+                    <label for="tgl_mulai" class="form-label">Tanggal Mulai Kursus</label>
+                    <input type="date" class="form-control" name="tgl_mulai" id="tgl_mulai"
+                        value="{{ $data[0]->tgl_mulai }}">
+                </div>
+                <div class="mb-3">
+                    <label for="tgl_selesai" class="form-label">Tanggal Selesai Kursus</label>
+                    <input type="date" class="form-control" name="tgl_selesai" id="tgl_selesai"
+                        value="{{ $data[0]->tgl_selesai }}">
                 </div>
                 <div class="my-2">
                     <center>

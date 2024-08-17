@@ -23,11 +23,14 @@ class Mengemudi extends Model
         'kecamatan',
         'kabupaten',
         'agama',
+        'kode_pos',
         'status',
         'nama_ibu',
         'nama_ayah',
         'telepon',
         'email',
-        'paket'
+        'paket',
+        'tgl_mulai',
+        'tgl_selesai',
     ];
 }

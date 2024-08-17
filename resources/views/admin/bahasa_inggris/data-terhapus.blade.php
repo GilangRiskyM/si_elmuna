@@ -28,6 +28,7 @@
                     <th>Alamat</th>
                     <th>Kecamatan</th>
                     <th>Kabupaten</th>
+                    <th>Kode Pos</th>
                     <th>Agama</th>
                     <th>Status</th>
                     <th>Nama Ibu</th>
@@ -35,6 +36,8 @@
                     <th>No. WA</th>
                     <th>Email</th>
                     <th>Tanggal Mendaftar</th>
+                    <th>Tanggal Mulai Kursus</th>
+                    <th>Tanggal Selesai Kursus</th>
                     <th>Paket</th>
                     <th>Aksi</th>
                 </tr>
@@ -53,6 +56,7 @@
                             <td>{{ $datum->alamat }}</td>
                             <td>{{ $datum->kecamatan }}</td>
                             <td>{{ $datum->kabupaten }}</td>
+                            <td>{{ $datum->kode_pos }}</td>
                             <td>{{ $datum->agama }}</td>
                             <td>{{ $datum->status }}</td>
                             <td>{{ $datum->nama_ibu }}</td>
@@ -60,6 +64,20 @@
                             <td>{{ $datum->telepon }}</td>
                             <td>{{ $datum->email }}</td>
                             <td>{{ tgl_indonesia3($datum->created_at) }}</td>
+                            <td>
+                                @if ($datum->tgl_mulai == !null)
+                                    {{ tgl_indonesia3($datum->tgl_mulai) }}
+                                @else
+                                    -
+                                @endif
+                            </td>
+                            <td>
+                                @if ($datum->tgl_selsai == !null)
+                                    {{ tgl_indonesia3($datum->tgl_selsai) }}
+                                @else
+                                    -
+                                @endif
+                            </td>
                             <td>
                                 @php
                                     $paketan = json_decode($datum->paket);
@@ -78,7 +96,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="14">
+                        <td colspan="22">
                             <center>
                                 <h3>Data Kosong</h3>
                             </center>

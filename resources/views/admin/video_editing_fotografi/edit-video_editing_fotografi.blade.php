@@ -78,8 +78,14 @@
                         value="{{ $data[0]->kabupaten }}">
                 </div>
                 <div class="mb-3">
+                    <label for="kode_pos" class="form-label">Kode Pos</label>
+                    <input type="text" class="form-control" name="kode_pos" id="kode_pos"
+                        value="{{ $data[0]->kode_pos }}">
+                </div>
+                <div class="mb-3">
                     <label for="agama" class="form-label">Agama</label>
-                    <input type="text" class="form-control" name="agama" id="agama" value="{{ $data[0]->agama }}">
+                    <input type="text" class="form-control" name="agama" id="agama"
+                        value="{{ $data[0]->agama }}">
                 </div>
                 <div class="mb-3">
                     <label for="status" class="form-label">Status Pekerjaan</label>
@@ -122,19 +128,26 @@
                             {{ in_array('VIDEO EDITING FILMORA', $paket) ? 'checked' : '' }}>
                         <label for="video_editing_filmora" class="form-check-label">VIDEO EDITING FILMORA</label>
                     </div>
-
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="video_editing_capcut" class="form-check-input"
                             value="VIDEO EDITING CAPCUT" {{ in_array('VIDEO EDITING CAPCUT', $paket) ? 'checked' : '' }}>
                         <label for="video_editing_capcut" class="form-check-label">VIDEO EDITING CAPCUT</label>
                     </div>
-
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="fotografi" class="form-check-input" value="FOTOGRAFI"
                             {{ in_array('FOTOGRAFI', $paket) ? 'checked' : '' }}>
                         <label for="fotografi" class="form-check-label">FOTOGRAFI</label>
                     </div>
-
+                </div>
+                <div class="mb-3">
+                    <label for="tgl_mulai" class="form-label">Tanggal Mulai Kursus</label>
+                    <input type="date" class="form-control" name="tgl_mulai" id="tgl_mulai"
+                        value="{{ $data[0]->tgl_mulai }}">
+                </div>
+                <div class="mb-3">
+                    <label for="tgl_selesai" class="form-label">Tanggal Selesai Kursus</label>
+                    <input type="date" class="form-control" name="tgl_selesai" id="tgl_selesai"
+                        value="{{ $data[0]->tgl_selesai }}">
                 </div>
                 <div class="my-2">
                     <center>

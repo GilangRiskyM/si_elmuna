@@ -1,2 +1,3 @@
-sing kurang ring bagian hapus, hapus permanen, kabeh controller bagian cari ro export
+sing kurang ring bagian hapus ro hapus permanen
 kode pos, tgl mulai dan tgl selesai kursus
+jebul created_at ra bisa digolet nggo fitur search

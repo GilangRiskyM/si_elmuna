@@ -27,7 +27,7 @@
     </div>
     <hr>
     <div class="col-md-6">
-        <label class="mb-2">Filter Data</label>
+        <label class="mb-2">Filter Tanggal Mendaftar</label>
         <form action="/data_komputer/filter" method="get">
             <div class="input-group">
                 <span class="input-group-text">Dari Tanggal : </span>
@@ -41,7 +41,7 @@
     </div>
     <hr>
     <div class="col-md-6">
-        <label class="mb-2">Export Data</label>
+        <label class="mb-2">Export Data ke Excel</label>
         <form action="/data_komputer/export" method="post">
             @csrf
             <div class="input-group">

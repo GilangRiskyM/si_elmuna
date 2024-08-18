@@ -52,7 +52,6 @@ class KomputerController extends Controller
                 ->orWhere('nama_ayah', 'LIKE', '%' . $cari . '%')
                 ->orWhere('telepon', 'LIKE', '%' . $cari . '%')
                 ->orWhere('email', 'LIKE', '%' . $cari . '%')
-                ->orWhere('created_at', 'LIKE', '%' . $cari . '%')
                 ->orWhere('paket', 'LIKE', '%' . $cari . '%')
                 ->get();
         } else {

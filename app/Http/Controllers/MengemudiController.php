@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EditMengemudiRequest;
 use App\Http\Requests\TambahMengemudiRequest;
 use App\Models\Mengemudi;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -183,16 +184,19 @@ class MengemudiController extends Controller
         $sheet->setCellValue('H1', 'Alamat');
         $sheet->setCellValue('I1', 'Kecamatan');
         $sheet->setCellValue('J1', 'Kabupaten');
-        $sheet->setCellValue('K1', 'Agama');
-        $sheet->setCellValue('L1', 'Status Pekerjaan');
-        $sheet->setCellValue('M1', 'Nama Ibu');
-        $sheet->setCellValue('N1', 'Nama Ayah');
-        $sheet->setCellValue('O1', 'No. WA');
-        $sheet->setCellValue('P1', 'Email');
-        $sheet->setCellValue('Q1', 'Tanggal Mendaftar');
-        $sheet->setCellValue('R1', 'Paket');
-        $sheet->setCellValue('S1', 'Jumlah Peserta Laki-laki');
-        $sheet->setCellValue('T1', 'Jumlah Peserta Perempuan');
+        $sheet->setCellValue('K1', 'Kode Pos');
+        $sheet->setCellValue('L1', 'Agama');
+        $sheet->setCellValue('M1', 'Status');
+        $sheet->setCellValue('N1', 'Nama Ibu');
+        $sheet->setCellValue('O1', 'Nama Ayah');
+        $sheet->setCellValue('P1', 'No. WA');
+        $sheet->setCellValue('Q1', 'Email');
+        $sheet->setCellValue('R1', 'Tanggal Mendaftar');
+        $sheet->setCellValue('S1', 'Tanggal Mulai Kursus');
+        $sheet->setCellValue('T1', 'Tanggal Selesai Kursus');
+        $sheet->setCellValue('U1', 'Paket');
+        $sheet->setCellValue('V1', 'Jumlah Peserta Laki-laki');
+        $sheet->setCellValue('W1', 'Jumlah Peserta Perempuan');
 
         $no = 1;
         $rows = 2;
@@ -203,21 +207,45 @@ class MengemudiController extends Controller
         foreach ($sql as $data) {
             $sheet->setCellValue('A' . $rows, $no++);
             $sheet->setCellValue('B' . $rows, "'" . $data->nik);
-            $sheet->setCellValue('C' . $rows, $data->nisn);
+            $sheet->setCellValue('C' . $rows, "'" . $data->nisn);
             $sheet->setCellValue('D' . $rows, $data->nama);
             $sheet->setCellValue('E' . $rows, $data->tempat_lahir);
-            $sheet->setCellValue('F' . $rows, $data->tanggal_lahir);
+
+            //Ubah format tgl lahir
+            $dateLahir = new DateTime($data->tanggal_lahir);
+            $tglLahir = date_format($dateLahir, 'd/m/Y');
+            $sheet->setCellValue('F' . $rows, $tglLahir);
+
             $sheet->setCellValue('G' . $rows, $data->jk);
             $sheet->setCellValue('H' . $rows, $data->alamat);
             $sheet->setCellValue('I' . $rows, $data->kecamatan);
             $sheet->setCellValue('J' . $rows, $data->kabupaten);
-            $sheet->setCellValue('K' . $rows, $data->agama);
-            $sheet->setCellValue('L' . $rows, $data->status);
-            $sheet->setCellValue('M' . $rows, $data->nama_ibu);
-            $sheet->setCellValue('N' . $rows, $data->nama_ayah);
-            $sheet->setCellValue('O' . $rows, $data->telepon);
-            $sheet->setCellValue('P' . $rows, $data->email);
-            $sheet->setCellValue('Q' . $rows, date_format($data->created_at, 'Y/m/d'));
+            $sheet->setCellValue('K' . $rows, $data->kode_pos);
+            $sheet->setCellValue('L' . $rows, $data->agama);
+            $sheet->setCellValue('M' . $rows, $data->status);
+            $sheet->setCellValue('N' . $rows, $data->nama_ibu);
+            $sheet->setCellValue('O' . $rows, $data->nama_ayah);
+            $sheet->setCellValue('P' . $rows, "'" . $data->telepon);
+            $sheet->setCellValue('Q' . $rows, $data->email);
+            $sheet->setCellValue('R' . $rows, date_format($data->created_at, 'd/m/Y'));
+
+            // Pengandaian ada tidaknya value di $data->tgl_mulai
+            if ($data->tgl_mulai == !null) {
+                $dateMulai = new DateTime($data->tgl_mulai);
+                $tglMulai = date_format($dateMulai, 'd/m/Y');
+            } else {
+                $tglMulai = '-';
+            }
+            $sheet->setCellValue('S' . $rows, $tglMulai);
+
+            // Pengandaian ada tidaknya value di $data->tgl_selesai
+            if ($data->tgl_selesai == !null) {
+                $dateSelesai = new DateTime($data->tgl_selesai);
+                $tglSelesai = date_format($dateSelesai, 'd/m/Y');
+            } else {
+                $tglSelesai = '-';
+            }
+            $sheet->setCellValue('T' . $rows, $tglSelesai);
 
             // Decode the JSON paket
             $paket = json_decode($data->paket, true);
@@ -235,15 +263,15 @@ class MengemudiController extends Controller
                 }
             } else {
                 // Jika json_decode gagal, set nilai ke string kosong atau pesan error
-                $paketString = 'Invalid JSON';
+                $paketString = '-';
             }
 
-            $sheet->setCellValue('R' . $rows, $paketString);
+            $sheet->setCellValue('U' . $rows, $paketString);
             $rows++;
         }
 
-        $sheet->setCellValue('S2', $laki_laki);
-        $sheet->setCellValue('T2', $perempuan);
+        $sheet->setCellValue('V2', $laki_laki);
+        $sheet->setCellValue('W2', $perempuan);
 
         $writer = new Xlsx($spreadsheet);
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');

@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('title', 'Elmuna - Tambah Pengeluaran')
+@extends('layout.admin')
+@section('title', 'Tambah Pengeluaran')
 @section('content')
     <div class="card">
         <div class="card-header">

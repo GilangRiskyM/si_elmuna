@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Data Kursus | @yield('title')</title>
+    <title>Elmuna | @yield('title')</title>
     <link rel="icon" href="/asset/img/icon1.png" type="image/x-icon">
     <link href="/css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
@@ -60,6 +60,22 @@
                                 <a href="/data_video_editing_fotografi" class="nav-link">
                                     Kursus Video Editing & Fotografi
                                 </a>
+                            </nav>
+                        </div><a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#dataRekap" aria-expanded="false" aria-controls="dataRekap">
+                            <div class="sb-nav-link-icon"><i class='bx bxs-folder'></i></div>
+                            Rekapitulasi
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class='bx bxs-chevron-down'></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="dataRekap" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/pemasukan">Pemasukan</a>
+                                <a class="nav-link" href="/pengeluaran">Pengeluaran</a>
+                                <a class="nav-link" href="/laporan">Laporan</a>
+                                <a href="/kuitansi" class="nav-link">Kuitansi</a>
                             </nav>
                         </div>
                         <a href="/logout" class="nav-link">

@@ -1,15 +1,19 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BahasaInggrisController;
-use App\Http\Controllers\DesainGrafisController;
-use App\Http\Controllers\DigitalMarketingController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\KomputerController;
-use App\Http\Controllers\MengemudiController;
-use App\Http\Controllers\PemrogramanController;
-use App\Http\Controllers\VideoFotoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\KomputerController;
+use App\Http\Controllers\KuitansiController;
+use App\Http\Controllers\MengemudiController;
+use App\Http\Controllers\PemasukanController;
+use App\Http\Controllers\VideoFotoController;
+use App\Http\Controllers\PemrogramanController;
+use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\DesainGrafisController;
+use App\Http\Controllers\BahasaInggrisController;
+use App\Http\Controllers\DigitalMarketingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -126,3 +130,41 @@ Route::get('/data_video_editing_fotografi/terhapus', [VideoFotoController::class
 Route::get('/restore-video_editing_fotografi/{id}', [VideoFotoController::class, 'restoreData'])->middleware('auth');
 Route::get('/hapus_permanen_video_editing_fotografi/{id}', [VideoFotoController::class, 'deletePermanen'])->middleware('auth');
 Route::delete('/force-delete-video_editing_fotografi/{id}', [VideoFotoController::class, 'forceDelete'])->middleware('auth');
+
+Route::get('/pemasukan', [PemasukanController::class, 'index'])->middleware('auth');
+Route::get('/pemasukan/tambah', [PemasukanController::class, 'create'])->middleware('auth');
+Route::post('/tambah-pemasukan', [PemasukanController::class, 'store'])->middleware('auth');
+Route::get('/pemasukan/edit/{id}', [PemasukanController::class, 'edit'])->middleware('auth');
+Route::put('/edit-pemasukan/{id}', [PemasukanController::class, 'update'])->middleware('auth');
+Route::get('/pemasukan/hapus/{id}', [PemasukanController::class, 'delete'])->middleware('auth');
+Route::delete('/destroy-pemasukan/{id}', [PemasukanController::class, 'destroy'])->middleware('auth');
+Route::get('/pemasukan/restore', [PemasukanController::class, 'deletedPemasukan'])->middleware('auth');
+Route::get('/restore-pemasukan/{id}', [PemasukanController::class, 'restoreData'])->middleware('auth');
+Route::get('/pemasukan/hapus_permanen/{id}', [PemasukanController::class, 'deletePermanen'])->middleware('auth');
+Route::delete('/force_delete-pemasukan/{id}', [PemasukanController::class, 'forceDelete'])->middleware('auth');
+Route::post('/pemasukan/export', [PemasukanController::class, 'export'])->middleware('auth');
+
+Route::get('/pengeluaran', [PengeluaranController::class, 'index'])->middleware('auth');
+Route::get('/pengeluaran/tambah', [PengeluaranController::class, 'create'])->middleware('auth');
+Route::post('/tambah-pengeluaran', [PengeluaranController::class, 'store'])->middleware('auth');
+Route::get('/pengeluaran/edit/{id}', [PengeluaranController::class, 'edit'])->middleware('auth');
+Route::put('/edit-pengeluaran/{id}', [PengeluaranController::class, 'update'])->middleware('auth');
+Route::get('/pengeluaran/hapus/{id}', [PengeluaranController::class, 'delete'])->middleware('auth');
+Route::delete('/destroy-pengeluaran/{id}', [PengeluaranController::class, 'destroy'])->middleware('auth');
+Route::get('/pengeluaran/restore', [PengeluaranController::class, 'deletedPengeluaran'])->middleware('auth');
+Route::get('/restore-pengeluaran/{id}', [PengeluaranController::class, 'restoreData'])->middleware('auth');
+Route::get('/pengeluaran/hapus_permanen/{id}', [PengeluaranController::class, 'deletePermanen'])->middleware('auth');
+Route::delete('/force_delete-pengeluaran/{id}', [PengeluaranController::class, 'forceDelete'])->middleware('auth');
+Route::post('/pengeluaran/export', [PengeluaranController::class, 'export'])->middleware('auth');
+
+Route::get('/laporan', [LaporanController::class, 'index'])->middleware('auth');
+Route::post('/laporan/export', [LaporanController::class, 'export'])->middleware('auth');
+
+Route::get('/kuitansi', [KuitansiController::class, 'index'])->middleware('auth');
+Route::get('/kuitansi/tambah/{id}', [KuitansiController::class, 'create'])->middleware('auth');
+Route::post('/tambah-kuitansi', [KuitansiController::class, 'store'])->middleware('auth');
+Route::get('/kuitansi/edit/{id}', [KuitansiController::class, 'edit'])->middleware('auth');
+Route::put('/edit-kuitansi/{id}', [KuitansiController::class, 'update'])->middleware('auth');
+Route::get('/kuitansi/cetak/{id}', [KuitansiController::class, 'cetakKuitansi'])->middleware('auth');
+Route::get('/kuitansi/hapus/{id}', [KuitansiController::class, 'delete'])->middleware('auth');
+Route::delete('/destroy-kuitansi/{id}', [KuitansiController::class, 'destroy'])->middleware('auth');

@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layout.admin')
 @include('fungsi.fungsi_tgl_indo')
-@section('title', 'Elmuna Laporan')
+@section('title', 'Laporan')
 @section('content')
     <center>
         <h1 class="my-3">Laporan Pemasukan Dan Pengeluaran</h1>

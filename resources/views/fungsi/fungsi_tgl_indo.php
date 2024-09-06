@@ -42,3 +42,14 @@ function tgl_indonesia3($date)
     $result = $tgl . " " . $Bulan[(int)$bulan - 1] . " " . $tahun . "";
     return $result;
 }
+function tgl_indonesia4($date)
+{
+    // ARRAY untuk hari //
+    $Hari = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu",);
+
+    // Memisahkan format hari menggunakan strtotime//
+    $hari     = date("w", strtotime($date));
+
+    $result = $Hari[$hari];
+    return $result;
+}

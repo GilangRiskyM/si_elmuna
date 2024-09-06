@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('title', 'Elmuna Kuitansi')
+@extends('layout.admin')
+@section('title', 'Kuitansi')
 @section('content')
     <center>
         <h1 class="my-3">Kuitansi</h1>

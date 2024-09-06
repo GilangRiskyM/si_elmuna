@@ -21,7 +21,7 @@
                 Halaman yang Anda akses tidak ditemukan.
             </p>
             <div>
-                <a href="{{ url('/pemasukan') }}" class="btn btn-secondary rounded-5 px-5">Kembali ke halaman utama</a>
+                <a href="{{ url('/') }}" class="btn btn-secondary rounded-5 px-5">Kembali ke halaman utama</a>
             </div>
         </div>
     </div>

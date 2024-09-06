@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layout.admin')
 @include('fungsi.fungsi_tgl_indo')
-@section('title', 'Elmuna - Restore')
+@section('title', 'Restore Pemasukan')
 @section('content')
     <center>
         <h1 class="my-3">Data Pemasukan Yang Dihapus</h1>

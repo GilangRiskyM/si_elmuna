@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layout.admin')
 @include('fungsi.fungsi_tgl_indo')
-@section('title', 'Elmuna Hapus Kuitansi')
+@section('title', 'Hapus Kuitansi')
 @push('css')
     <style>
         form {

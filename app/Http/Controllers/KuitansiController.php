@@ -38,7 +38,7 @@ class KuitansiController extends Controller
     function create($id)
     {
         $sql = Masuk::findOrFail($id);
-        return view('kuitansi.tambah', ['data' => $sql]);
+        return view('admin.kuitansi.tambah', ['data' => $sql]);
     }
 
     function store(TambahKuitansiRequest $request)

@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('title', 'Elmuna - Hapus Data Pemasukan')
+@extends('layout.admin')
+@section('title', 'Hapus Data Pemasukan')
 @section('content')
     <center>
         <h2>Hapus Data Pemasukan</h2>

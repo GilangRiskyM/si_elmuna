@@ -25,13 +25,14 @@
             border-bottom: 2px solid black;
         }
 
+
         .garis-strip {
-            border-top: 1px dashed black;
+            border-bottom: 2px dashed black;
         }
     </style>
 </head>
 
-<body>
+<body class="my-3">
     <!-- Untuk Peserta -->
     <div class="row">
         <div class="col-10 garis">
@@ -47,18 +48,17 @@
         <div class="col-9">
             <div class="garis-bawah">
                 <center>
-                    <font size="4"><b>LKP ELMUNA</b></font>
+                    <font size="4"><b>LKP/LPK ELMUNA</b></font>
                     <br>
                     <font size="3">
                         <b> JL. SOKA PETANAHAN NO. 10 KM. 6 KEC. KLIRONG KAB. KEBUMEN </b>
                     </font>
                     <br>
                     <font size="3">
-                        <b>NO HP/WA 082134389173, 085325636373, 087837973541</b>
+                        <b>NO HP/WA 082134389173, 085325636373</b>
                     </font>
                 </center>
             </div>
-            <br>
             <table>
                 <tr>
                     <td>Nama &nbsp;</td>
@@ -89,6 +89,11 @@
                     <td>Terbilang &nbsp;</td>
                     <td>:</td>
                     <td>&nbsp; {{ $data->terbilang }}</td>
+                </tr>
+                <tr>
+                    <td>Pembayaran &nbsp;</td>
+                    <td>:</td>
+                    <td>&nbsp; {{ $data->pembayaran }}</td>
                 </tr>
             </table>
         </div>
@@ -149,14 +154,13 @@
             <font size="3">
                 *** Terimakasih ***
                 <br>
-                Ket ADMIN
+                Ket {{ $data->cara_bayar }}
             </font>
         </center>
     </div>
     <br>
-    <div class="col-12">
-        <p class="garis-strip">&nbsp;</p>
-    </div>
+    <hr class="garis-strip">
+    <br>
     <!-- Untuk Arsip -->
     <div class="row">
         <div class="col-10 garis">
@@ -172,18 +176,17 @@
         <div class="col-9">
             <div class="garis-bawah">
                 <center>
-                    <font size="4"><b>LKP ELMUNA</b></font>
+                    <font size="4"><b>LKP/LPK ELMUNA</b></font>
                     <br>
                     <font size="3">
                         <b> JL. SOKA PETANAHAN NO. 10 KM. 6 KEC. KLIRONG KAB. KEBUMEN </b>
                     </font>
                     <br>
                     <font size="3">
-                        <b>NO HP/WA 082134389173, 085325636373, 087837973541</b>
+                        <b>NO HP/WA 082134389173, 085325636373</b>
                     </font>
                 </center>
             </div>
-            <br>
             <table>
                 <tr>
                     <td>Nama &nbsp;</td>
@@ -214,6 +217,11 @@
                     <td>Terbilang &nbsp;</td>
                     <td>:</td>
                     <td>&nbsp; {{ $data->terbilang }}</td>
+                </tr>
+                <tr>
+                    <td>Pembayaran &nbsp;</td>
+                    <td>:</td>
+                    <td>&nbsp; {{ $data->pembayaran }}</td>
                 </tr>
             </table>
         </div>
@@ -274,7 +282,7 @@
             <font size="3">
                 *** Terimakasih ***
                 <br>
-                Ket ADMIN
+                Ket {{ $data->cara_bayar }}
             </font>
         </center>
     </div>

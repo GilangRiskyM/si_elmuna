@@ -18,6 +18,8 @@ class Kuitansi extends Model
         'guna_byr3',
         'jumlah',
         'terbilang',
-        'penerima'
+        'pembayaran',
+        'penerima',
+        'cara_bayar'
     ];
 }

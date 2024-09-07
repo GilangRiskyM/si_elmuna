@@ -44,14 +44,14 @@
             <div class="col-9">
                 <div class="garis-bawah">
                     <center>
-                        <font size="4"><b>LKP ELMUNA</b></font>
+                        <font size="4"><b>LKP/LPK ELMUNA</b></font>
                         <br>
                         <font size="3">
                             <b> JL. SOKA PETANAHAN NO. 10 KM. 6 KEC. KLIRONG KAB. KEBUMEN </b>
                         </font>
                         <br>
                         <font size="3">
-                            <b>NO HP/WA 082134389173, 085325636373, 087837973541</b>
+                            <b>NO HP/WA 082134389173, 085325636373</b>
                         </font>
                     </center>
                 </div>
@@ -61,43 +61,55 @@
                         <td>Nama &nbsp;</td>
                         <td>:</td>
                         <td>
-                            <input type="text" name="nama" id="" required>
+                            <input class="form-control" type="text" name="nama" id="" required>
                         </td>
                     </tr>
                     <tr>
                         <td>Guna Membayar &nbsp;</td>
                         <td>:</td>
                         <td>
-                            <input type="text" name="guna_byr1" id="" required>
+                            <input class="form-control" type="text" name="guna_byr1" id="" required>
                         </td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
                         <td></td>
                         <td>
-                            <input type="text" name="guna_byr2" id="">
+                            <input class="form-control" type="text" name="guna_byr2" id="">
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
                         <td>
-                            <input type="text" name="guna_byr3" id="">
+                            <input class="form-control" type="text" name="guna_byr3" id="">
                         </td>
                     </tr>
                     <tr>
-                        <td>Jumlah Diterima &nbsp;</td>
+                        <td>Jumlah Diterima (Rp)&nbsp;</td>
                         <td>:</td>
-                        <td> Rp.
-                            <input type="number" name="jumlah" id="" required
-                                value="{{ $data->jumlah_pemasukan }}"> ,-
+                        <td>
+                            <input class="form-control" type="number" name="jumlah" id="" required
+                                value="{{ $data->jumlah_pemasukan }}">
                         </td>
                     </tr>
                     <tr>
                         <td>Terbilang &nbsp;</td>
                         <td>:</td>
                         <td>
-                            <input type="text" name="terbilang" id="" required>
+                            <input class="form-control" type="text" name="terbilang" id="" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pembayaran &nbsp;</td>
+                        <td>:</td>
+                        <td>
+                            <select name="pembayaran" id="" class="form-select select2"
+                                data-placeholder="Pilih Pembayaran">
+                                <option></option>
+                                <option value="ANGSUR">ANGSUR</option>
+                                <option value="LUNAS">LUNAS</option>
+                            </select>
                         </td>
                     </tr>
                 </table>
@@ -150,7 +162,7 @@
                     <br>
                     <br>
                     <font size="">
-                        <input type="text" name="penerima" id="" required>
+                        <input class="form-control" type="text" name="penerima" id="" required>
                     </font>
                 </center>
             </div>
@@ -160,9 +172,21 @@
             <center>
                 <font size="3">
                     *** Terimakasih ***
-                    <br>
-                    Ket ADMIN
                 </font>
+                <br>
+                <table>
+                    <tr>
+                        <td>Ket</td>
+                        <td>
+                            <select class="form-select select2" name="cara_bayar" id=""
+                                data-placeholder="Pilih Cara Bayar">
+                                <option></option>
+                                <option value="ADMIN">ADMIN</option>
+                                <option value="TRANSFER">TRANSFER</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
             </center>
         </div>
         <hr>
@@ -175,3 +199,10 @@
         </div>
     </form>
 @endsection
+@push('js')
+    <script>
+        $(".select2").select2({
+            theme: "bootstrap-5",
+        });
+    </script>
+@endpush

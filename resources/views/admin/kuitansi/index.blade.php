@@ -30,7 +30,9 @@
                     <th>Guna Membayar</th>
                     <th>Jumlah Diterima</th>
                     <th>Terbilang</th>
+                    <th>Pembayaran</th>
                     <th>Penerima</th>
+                    <th>Cara Bayar</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -50,7 +52,9 @@
                             </td>
                             <td>Rp. {{ number_format($datum->jumlah, 0, ',', '.') }} ,-</td>
                             <td>{{ $datum->terbilang }}</td>
+                            <td>{{ $datum->pembayaran }}</td>
                             <td>{{ $datum->penerima }}</td>
+                            <td>{{ $datum->cara_bayar }}</td>
                             <td>
                                 <a href="/kuitansi/edit/{{ $datum->id }}" class="btn btn-warning">Edit</a>
                                 <a href="/kuitansi/cetak/{{ $datum->id }}" target="_blank"

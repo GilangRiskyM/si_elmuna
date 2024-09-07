@@ -26,7 +26,9 @@ class EditKuitansiRequest extends FormRequest
             'guna_byr1' => 'required',
             'jumlah' => 'required',
             'terbilang' => 'required',
-            'penerima' => 'required'
+            'pembayaran' => 'required',
+            'penerima' => 'required',
+            'cara_bayar' => 'required'
         ];
     }
 }

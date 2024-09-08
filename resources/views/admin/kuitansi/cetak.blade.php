@@ -23,6 +23,8 @@
 
         .garis-bawah {
             border-bottom: 2px solid black;
+            line-height: 1.2;
+            margin-bottom: 10px;
         }
 
 
@@ -112,7 +114,7 @@
                 <tr>
                     <td>HARI</td>
                     <td>&nbsp;:&nbsp;</td>
-                    <td>{{ tgl_indonesia4(date('w')) }}</td>
+                    <td>{{ tgl_indonesia4(date('l')) }}</td>
                 </tr>
                 <tr>
                     <td>JAM</td>
@@ -240,7 +242,7 @@
                 <tr>
                     <td>HARI</td>
                     <td>&nbsp;:&nbsp;</td>
-                    <td>{{ tgl_indonesia4(date('w')) }}</td>
+                    <td>{{ tgl_indonesia4(date('l')) }}</td>
                 </tr>
                 <tr>
                     <td>JAM</td>

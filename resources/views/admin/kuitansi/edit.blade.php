@@ -136,7 +136,7 @@
                     <tr>
                         <td>HARI</td>
                         <td>&nbsp;:&nbsp;</td>
-                        <td>{{ tgl_indonesia4(date('w')) }}</td>
+                        <td>{{ tgl_indonesia4(date('l')) }}</td>
                     </tr>
                     <tr>
                         <td>JAM</td>

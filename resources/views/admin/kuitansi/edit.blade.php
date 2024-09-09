@@ -112,7 +112,6 @@
                         <td>
                             <select name="pembayaran" id="" class="form-select select2"
                                 data-placeholder="Pilih Pembayaran">
-                                <option></option>
                                 <option value="ANGSUR" {{ $data->pembayaran == 'ANGSUR' ? 'selected' : null }}>ANGSUR
                                 </option>
                                 <option value="LUNAS" {{ $data->pembayaran == 'LUNAS' ? 'selected' : null }}>LUNAS</option>

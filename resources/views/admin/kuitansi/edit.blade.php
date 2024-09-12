@@ -187,7 +187,6 @@
                         <td>
                             <select class="form-select select2" name="cara_bayar" id=""
                                 data-placeholder="Pilih Cara Bayar">
-                                <option></option>
                                 <option value="ADMIN" {{ $data->cara_bayar == 'ADMIN' ? 'selected' : null }}>ADMIN
                                 </option>
                                 <option value="TRANSFER" {{ $data->cara_bayar == 'TRANSFER' ? 'selected' : null }}>TRANSFER

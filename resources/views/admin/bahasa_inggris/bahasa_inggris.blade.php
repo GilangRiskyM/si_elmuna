@@ -55,7 +55,7 @@
     </div>
     <hr>
     <div class="table-responsive">
-        <table class="table table-bordered table-hover">
+        <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr class="align-middle">
                     <th>No</th>
@@ -129,6 +129,8 @@
                             <td>
                                 <a href="/edit_bahasa_inggris/{{ $datum->id }}" class="btn btn-warning">Edit</a>
                                 <a href="/hapus_bahasa_inggris/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
+                                <a href="/sertifikat/tambah/bahasa-inggris/{{ $datum->id }}"
+                                    class="btn btn-primary">Buat Sertifikat</a>
                             </td>
                         </tr>
                     @endforeach

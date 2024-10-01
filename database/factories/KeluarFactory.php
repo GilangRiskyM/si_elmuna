@@ -17,8 +17,8 @@ class KeluarFactory extends Factory
     public function definition(): array
     {
         return [
-            'ket_pengeluaran' => fake()->firstName(),
-            'jumlah_pengeluaran' => fake()->randomElements(['1500', '2500'])[0]
+            'ket_pengeluaran' => fake()->randomElements(['ATK', 'Air', 'WiFi', 'Kertas', 'Tinta', 'Listrik'])[0],
+            'jumlah_pengeluaran' => fake()->randomElements(['1500', '2000', '2500', '5000', '300000'])[0]
         ];
     }
 }

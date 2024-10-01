@@ -1,6 +1,13 @@
 @extends('layout.admin')
 @include('fungsi.fungsi_tgl_indo')
 @section('title', 'Laporan')
+@push('css')
+    <style>
+        .table-data {
+            max-height: 100vh;
+        }
+    </style>
+@endpush
 @section('content')
     <center>
         <h1 class="my-3">Laporan Pemasukan Dan Pengeluaran</h1>
@@ -59,7 +66,7 @@
                 <center>
                     <h3>Pemasukan</h3>
                 </center>
-                <div class="table-responsive">
+                <div class="table-responsive table-data">
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
@@ -71,7 +78,7 @@
                         </thead>
                         <tbody>
                             @php
-                                $no = 1 + ($masuk->currentPage() - 1) * $masuk->perPage();
+                                $no = 1;
                             @endphp
                             @if ($masuk->count() > 0)
                                 @foreach ($masuk as $data)
@@ -93,14 +100,13 @@
                             @endif
                         </tbody>
                     </table>
-                    {{ $masuk->appends(request()->query())->links() }}
                 </div>
             </div>
             <div class="col-md-6">
                 <center>
                     <h3>Pengeluaran</h3>
                 </center>
-                <div class="table-responsive">
+                <div class="table-responsive table-data">
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
@@ -112,7 +118,7 @@
                         </thead>
                         <tbody>
                             @php
-                                $no = 1 + ($keluar->currentPage() - 1) * $keluar->perPage();
+                                $no = 1;
                             @endphp
                             @if ($keluar->count() > 0)
                                 @foreach ($keluar as $data)
@@ -134,7 +140,6 @@
                             @endif
                         </tbody>
                     </table>
-                    {{ $keluar->appends(request()->query())->links() }}
                 </div>
             </div>
         </div>

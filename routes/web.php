@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\SertifikatKomputer;
 use Illuminate\Support\Facades\Route;
+use App\Models\SertifikatBahasaInggris;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LaporanController;
@@ -9,11 +11,19 @@ use App\Http\Controllers\KuitansiController;
 use App\Http\Controllers\MengemudiController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\VideoFotoController;
+use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\PemrogramanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\DesainGrafisController;
 use App\Http\Controllers\BahasaInggrisController;
 use App\Http\Controllers\DigitalMarketingController;
+use App\Http\Controllers\SertifikatKomputerController;
+use App\Http\Controllers\SertifikatMengemudiController;
+use App\Http\Controllers\SertifikatVideoFotoController;
+use App\Http\Controllers\SertifikatPemrogramanController;
+use App\Http\Controllers\SertifikatDesainGrafisController;
+use App\Http\Controllers\SertifikatBahasaInggrisController;
+use App\Http\Controllers\SertifikatDigitalMarketingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -168,3 +178,80 @@ Route::put('/edit-kuitansi/{id}', [KuitansiController::class, 'update'])->middle
 Route::get('/kuitansi/cetak/{id}', [KuitansiController::class, 'cetakKuitansi'])->middleware('auth');
 Route::get('/kuitansi/hapus/{id}', [KuitansiController::class, 'delete'])->middleware('auth');
 Route::delete('/destroy-kuitansi/{id}', [KuitansiController::class, 'destroy'])->middleware('auth');
+
+// Sertifikat Bahasa Inggris
+Route::get('/sertifikat/bahasa-inggris', [SertifikatBahasaInggrisController::class, 'index'])->middleware('auth');
+Route::get('/sertifikat/tambah/bahasa-inggris/{id}', [SertifikatBahasaInggrisController::class, 'create'])->middleware('auth');
+Route::post('/tambah-sertifikat/bahasa-inggris', [SertifikatBahasaInggrisController::class, 'store'])->middleware('auth');
+Route::get('/sertifikat/bahasa-inggris/edit/{id}', [SertifikatBahasaInggrisController::class, 'edit'])->middleware('auth');
+Route::put('/edit-sertifikat/bahasa-inggris/{id}', [SertifikatBahasaInggrisController::class, 'update'])->middleware('auth');
+Route::get('/sertifikat/bahasa-inggris/cetak/{id}/sertifikat', [SertifikatBahasaInggrisController::class, 'cetak_sertifikat'])->middleware('auth');
+Route::get('/sertifikat/bahasa-inggris/cetak/{id}/nilai', [SertifikatBahasaInggrisController::class, 'cetak_nilai'])->middleware('auth');
+Route::get('/sertifikat/bahasa-inggris/hapus/{id}', [SertifikatBahasaInggrisController::class, 'delete'])->middleware('auth');
+Route::delete('/destroy-sertifikat/bahasa-inggris/{id}', [SertifikatBahasaInggrisController::class, 'destroy'])->middleware('auth');
+
+// Sertifikat Komputer
+Route::get('/sertifikat/komputer', [SertifikatKomputerController::class, 'index'])->middleware('auth');
+Route::get('/sertifikat/tambah/komputer/{id}', [SertifikatKomputerController::class, 'create'])->middleware('auth');
+Route::post('/tambah-sertifikat/komputer', [SertifikatKomputerController::class, 'store'])->middleware('auth');
+Route::get('/sertifikat/komputer/edit/{id}', [SertifikatKomputerController::class, 'edit'])->middleware('auth');
+Route::put('/edit-sertifikat/komputer/{id}', [SertifikatKomputerController::class, 'update'])->middleware('auth');
+Route::get('/sertifikat/komputer/cetak/{id}/sertifikat', [SertifikatKomputerController::class, 'cetak_sertifikat'])->middleware('auth');
+Route::get('/sertifikat/komputer/cetak/{id}/nilai', [SertifikatKomputerController::class, 'cetak_nilai'])->middleware('auth');
+Route::get('/sertifikat/komputer/hapus/{id}', [SertifikatKomputerController::class, 'delete'])->middleware('auth');
+Route::delete('/destroy-sertifikat/komputer/{id}', [SertifikatKomputerController::class, 'destroy'])->middleware('auth');
+
+// Sertifikat Desain Grafis
+Route::get('/sertifikat/desain-grafis', [SertifikatDesainGrafisController::class, 'index'])->middleware('auth');
+Route::get('/sertifikat/tambah/desain-grafis/{id}', [SertifikatDesainGrafisController::class, 'create'])->middleware('auth');
+Route::post('/tambah-sertifikat/desain-grafis', [SertifikatDesainGrafisController::class, 'store'])->middleware('auth');
+Route::get('/sertifikat/desain-grafis/edit/{id}', [SertifikatDesainGrafisController::class, 'edit'])->middleware('auth');
+Route::put('/edit-sertifikat/desain-grafis/{id}', [SertifikatDesainGrafisController::class, 'update'])->middleware('auth');
+Route::get('/sertifikat/desain-grafis/cetak/{id}/sertifikat', [SertifikatDesainGrafisController::class, 'cetak_sertifikat'])->middleware('auth');
+Route::get('/sertifikat/desain-grafis/cetak/{id}/nilai', [SertifikatDesainGrafisController::class, 'cetak_nilai'])->middleware('auth');
+Route::get('/sertifikat/desain-grafis/hapus/{id}', [SertifikatDesainGrafisController::class, 'delete'])->middleware('auth');
+Route::delete('/destroy-sertifikat/desain-grafis/{id}', [SertifikatDesainGrafisController::class, 'destroy'])->middleware('auth');
+
+// Sertifikat Digital Marketing
+Route::get('/sertifikat/digital-marketing', [SertifikatDigitalMarketingController::class, 'index'])->middleware('auth');
+Route::get('/sertifikat/tambah/digital-marketing/{id}', [SertifikatDigitalMarketingController::class, 'create'])->middleware('auth');
+Route::post('/tambah-sertifikat/digital-marketing', [SertifikatDigitalMarketingController::class, 'store'])->middleware('auth');
+Route::get('/sertifikat/digital-marketing/edit/{id}', [SertifikatDigitalMarketingController::class, 'edit'])->middleware('auth');
+Route::put('/edit-sertifikat/digital-marketing/{id}', [SertifikatDigitalMarketingController::class, 'update'])->middleware('auth');
+Route::get('/sertifikat/digital-marketing/cetak/{id}/sertifikat', [SertifikatDigitalMarketingController::class, 'cetak_sertifikat'])->middleware('auth');
+Route::get('/sertifikat/digital-marketing/cetak/{id}/nilai', [SertifikatDigitalMarketingController::class, 'cetak_nilai'])->middleware('auth');
+Route::get('/sertifikat/digital-marketing/hapus/{id}', [SertifikatDigitalMarketingController::class, 'delete'])->middleware('auth');
+Route::delete('/destroy-sertifikat/digital-marketing/{id}', [SertifikatDigitalMarketingController::class, 'destroy'])->middleware('auth');
+
+// Sertifikat Mengemudi
+Route::get('/sertifikat/mengemudi', [SertifikatMengemudiController::class, 'index'])->middleware('auth');
+Route::get('/sertifikat/tambah/mengemudi/{id}', [SertifikatMengemudiController::class, 'create'])->middleware('auth');
+Route::post('/tambah-sertifikat/mengemudi', [SertifikatMengemudiController::class, 'store'])->middleware('auth');
+Route::get('/sertifikat/mengemudi/edit/{id}', [SertifikatMengemudiController::class, 'edit'])->middleware('auth');
+Route::put('/edit-sertifikat/mengemudi/{id}', [SertifikatMengemudiController::class, 'update'])->middleware('auth');
+Route::get('/sertifikat/mengemudi/cetak/{id}/sertifikat', [SertifikatMengemudiController::class, 'cetak_sertifikat'])->middleware('auth');
+Route::get('/sertifikat/mengemudi/cetak/{id}/nilai', [SertifikatMengemudiController::class, 'cetak_nilai'])->middleware('auth');
+Route::get('/sertifikat/mengemudi/hapus/{id}', [SertifikatMengemudiController::class, 'delete'])->middleware('auth');
+Route::delete('/destroy-sertifikat/mengemudi/{id}', [SertifikatMengemudiController::class, 'destroy'])->middleware('auth');
+
+// Sertifikat Pemrograman
+Route::get('/sertifikat/pemrograman', [SertifikatPemrogramanController::class, 'index'])->middleware('auth');
+Route::get('/sertifikat/tambah/pemrograman/{id}', [SertifikatPemrogramanController::class, 'create'])->middleware('auth');
+Route::post('/tambah-sertifikat/pemrograman', [SertifikatPemrogramanController::class, 'store'])->middleware('auth');
+Route::get('/sertifikat/pemrograman/edit/{id}', [SertifikatPemrogramanController::class, 'edit'])->middleware('auth');
+Route::put('/edit-sertifikat/pemrograman/{id}', [SertifikatPemrogramanController::class, 'update'])->middleware('auth');
+Route::get('/sertifikat/pemrograman/cetak/{id}/sertifikat', [SertifikatPemrogramanController::class, 'cetak_sertifikat'])->middleware('auth');
+Route::get('/sertifikat/pemrograman/cetak/{id}/nilai', [SertifikatPemrogramanController::class, 'cetak_nilai'])->middleware('auth');
+Route::get('/sertifikat/pemrograman/hapus/{id}', [SertifikatPemrogramanController::class, 'delete'])->middleware('auth');
+Route::delete('/destroy-sertifikat/pemrograman/{id}', [SertifikatPemrogramanController::class, 'destroy'])->middleware('auth');
+
+// Sertifikat Video Editing & Fotografi
+Route::get('/sertifikat/video-editing-fotografi', [SertifikatVideoFotoController::class, 'index'])->middleware('auth');
+Route::get('/sertifikat/tambah/video-editing-fotografi/{id}', [SertifikatVideoFotoController::class, 'create'])->middleware('auth');
+Route::post('/tambah-sertifikat/video-editing-fotografi', [SertifikatVideoFotoController::class, 'store'])->middleware('auth');
+Route::get('/sertifikat/video-editing-fotografi/edit/{id}', [SertifikatVideoFotoController::class, 'edit'])->middleware('auth');
+Route::put('/edit-sertifikat/video-editing-fotografi/{id}', [SertifikatVideoFotoController::class, 'update'])->middleware('auth');
+Route::get('/sertifikat/video-editing-fotografi/cetak/{id}/sertifikat', [SertifikatVideoFotoController::class, 'cetak_sertifikat'])->middleware('auth');
+Route::get('/sertifikat/video-editing-fotografi/cetak/{id}/nilai', [SertifikatVideoFotoController::class, 'cetak_nilai'])->middleware('auth');
+Route::get('/sertifikat/video-editing-fotografi/hapus/{id}', [SertifikatVideoFotoController::class, 'delete'])->middleware('auth');
+Route::delete('/destroy-sertifikat/video-editing-fotografi/{id}', [SertifikatVideoFotoController::class, 'destroy'])->middleware('auth');

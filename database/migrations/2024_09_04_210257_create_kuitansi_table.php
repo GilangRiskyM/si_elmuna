@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('guna_byr2')->nullable();
             $table->string('guna_byr3')->nullable();
             $table->string('jumlah')->nullable(false);
-            $table->string('terbilang')->nullable(false);
             $table->string('pembayaran')->nullable(false);
             $table->string('penerima')->nullable(false);
             $table->string('cara_bayar')->nullable(false);

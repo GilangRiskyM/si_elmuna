@@ -52,17 +52,40 @@
                         <div class="collapse" id="dataPeserta" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/data_mengemudi">Kursus Mengemudi</a>
-                                <a class="nav-link" href="/data_komputer">Kursus Komputer</a>
-                                <a class="nav-link" href="/data_digital_marketing">Kursus Digital Marketing</a>
                                 <a href="/data_bahasa_inggris" class="nav-link">Kursus Bahasa Inggris</a>
-                                <a href="/data_pemrograman" class="nav-link">Kursus Pemrograman</a>
                                 <a href="/data_desain_grafis" class="nav-link">Kursus Desain Grafis</a>
+                                <a class="nav-link" href="/data_digital_marketing">Kursus Digital Marketing</a>
+                                <a class="nav-link" href="/data_komputer">Kursus Komputer</a>
+                                <a class="nav-link" href="/data_mengemudi">Kursus Mengemudi</a>
+                                <a href="/data_pemrograman" class="nav-link">Kursus Pemrograman</a>
                                 <a href="/data_video_editing_fotografi" class="nav-link">
                                     Kursus Video Editing & Fotografi
                                 </a>
                             </nav>
                         </div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#dataSertifikat" aria-expanded="false" aria-controls="dataSertifikat">
+                            <div class="sb-nav-link-icon"><i class='bx bxs-folder'></i></div>
+                            Sertifikat
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class='bx bxs-chevron-down'></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="dataSertifikat" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/sertifikat/bahasa-inggris">Bahasa Inggris</a>
+                                <a class="nav-link" href="/sertifikat/desain-grafis">Desain Grafis</a>
+                                <a class="nav-link" href="/sertifikat/digital-marketing">Digital Marketing</a>
+                                <a class="nav-link" href="/sertifikat/komputer">Komputer</a>
+                                <a class="nav-link" href="/sertifikat/mengemudi">Mengemudi</a>
+                                <a class="nav-link" href="/sertifikat/pemrograman">Pemrograman</a>
+                                <a class="nav-link" href="/sertifikat/video-editing-fotografi">Video Editing &
+                                    Fotografi</a>
+                            </nav>
+                        </div>
+
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#dataRekap" aria-expanded="false" aria-controls="dataRekap">
                             <div class="sb-nav-link-icon"><i class='bx bxs-folder'></i></div>
@@ -78,27 +101,6 @@
                                 <a class="nav-link" href="/pengeluaran">Pengeluaran</a>
                                 <a class="nav-link" href="/laporan">Laporan</a>
                                 <a href="/kuitansi" class="nav-link">Kuitansi</a>
-                            </nav>
-                        </div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#dataSertifikat" aria-expanded="false" aria-controls="dataSertifikat">
-                            <div class="sb-nav-link-icon"><i class='bx bxs-folder'></i></div>
-                            Sertifikat
-                            <div class="sb-sidenav-collapse-arrow">
-                                <i class='bx bxs-chevron-down'></i>
-                            </div>
-                        </a>
-                        <div class="collapse" id="dataSertifikat" aria-labelledby="headingOne"
-                            data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/sertifikat/bahasa-inggris">Bahasa Inggris</a>
-                                <a class="nav-link" href="/sertifikat/komputer">Komputer</a>
-                                <a class="nav-link" href="/sertifikat/desain-grafis">Desain Grafis</a>
-                                <a class="nav-link" href="/sertifikat/digital-marketing">Digital Marketing</a>
-                                <a class="nav-link" href="/sertifikat/mengemudi">Mengemudi</a>
-                                <a class="nav-link" href="/sertifikat/pemrograman">Pemrograman</a>
-                                <a class="nav-link" href="/sertifikat/video-editing-fotografi">Video Editing &
-                                    Fotografi</a>
                             </nav>
                         </div>
                         <a href="/logout" class="nav-link">

@@ -88,17 +88,13 @@
                     <td>&nbsp; Rp. {{ number_format($data->jumlah, 0, ',', '.') }} ,-</td>
                 </tr>
                 <tr>
-                    <td>Terbilang &nbsp;</td>
-                    <td>:</td>
-                    <td>&nbsp; {{ $data->terbilang }}</td>
-                </tr>
-                <tr>
                     <td>Pembayaran &nbsp;</td>
                     <td>:</td>
                     <td>&nbsp; {{ $data->pembayaran }}</td>
                 </tr>
             </table>
         </div>
+        <br>
         <div class="col-3">
             <table>
                 <tr>

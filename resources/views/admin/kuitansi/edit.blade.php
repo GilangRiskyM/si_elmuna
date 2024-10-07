@@ -99,14 +99,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Terbilang &nbsp;</td>
-                        <td>:</td>
-                        <td>
-                            <input class="form-control" type="text" name="terbilang" id="" required
-                                value="{{ $data->terbilang }}">
-                        </td>
-                    </tr>
-                    <tr>
                         <td>Pembayaran &nbsp;</td>
                         <td>:</td>
                         <td>
@@ -120,6 +112,7 @@
                     </tr>
                 </table>
             </div>
+            <br>
             <div class="col-3">
                 <table>
                     <tr>

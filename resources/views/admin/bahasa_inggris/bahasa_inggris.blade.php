@@ -127,10 +127,13 @@
                                 @endforeach
                             </td>
                             <td>
-                                <a href="/edit_bahasa_inggris/{{ $datum->id }}" class="btn btn-warning">Edit</a>
-                                <a href="/hapus_bahasa_inggris/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
-                                <a href="/sertifikat/tambah/bahasa-inggris/{{ $datum->id }}"
-                                    class="btn btn-primary">Buat Sertifikat</a>
+                                <center>
+                                    <a href="/edit_bahasa_inggris/{{ $datum->id }}" class="btn btn-warning">Edit</a>
+                                    <a href="/hapus_bahasa_inggris/{{ $datum->id }}"
+                                        class="btn btn-danger my-2">Hapus</a>
+                                    <a href="/sertifikat/tambah/bahasa-inggris/{{ $datum->id }}"
+                                        class="btn btn-primary">Buat Sertifikat</a>
+                                </center>
                             </td>
                         </tr>
                     @endforeach

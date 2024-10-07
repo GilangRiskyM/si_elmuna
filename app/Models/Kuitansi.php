@@ -17,7 +17,6 @@ class Kuitansi extends Model
         'guna_byr2',
         'guna_byr3',
         'jumlah',
-        'terbilang',
         'pembayaran',
         'penerima',
         'cara_bayar'

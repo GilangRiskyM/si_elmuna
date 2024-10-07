@@ -87,9 +87,12 @@
                             <td>{{ tgl_indonesia3($datum->created_at) }}</td>
                             <td>Rp. {{ number_format($datum->jumlah_pemasukan, 0, ',', '.') }} ,-</td>
                             <td>
-                                <a href="/pemasukan/edit/{{ $datum->id }}" class="btn btn-warning">Edit</a>
-                                <a href="/pemasukan/hapus/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
-                                <a href="/kuitansi/tambah/{{ $datum->id }}" class="btn btn-primary">Tambah Kuitansi</a>
+                                <center>
+                                    <a href="/pemasukan/edit/{{ $datum->id }}" class="btn btn-warning">Edit</a>
+                                    <a href="/pemasukan/hapus/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
+                                    <a href="/kuitansi/tambah/{{ $datum->id }}" class="btn btn-primary">Tambah
+                                        Kuitansi</a>
+                                </center>
                             </td>
                         </tr>
                     @endforeach

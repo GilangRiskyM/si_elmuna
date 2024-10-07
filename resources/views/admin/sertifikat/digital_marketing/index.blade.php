@@ -176,14 +176,16 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="/sertifikat/digital-marketing/edit/{{ $datum->id }}"
-                                    class="btn btn-warning">Edit</a>
-                                <a href="/sertifikat/digital-marketing/cetak/{{ $datum->id }}/sertifikat"
-                                    target="_blank" class="btn btn-success my-2">Print Sertifikat</a>
-                                <a href="/sertifikat/digital-marketing/cetak/{{ $datum->id }}/nilai" target="_blank"
-                                    class="btn btn-success">Print Nilai</a>
-                                <a href="/sertifikat/digital-marketing/hapus/{{ $datum->id }}"
-                                    class="btn btn-danger  my-2">Hapus</a>
+                                <center>
+                                    <a href="/sertifikat/digital-marketing/edit/{{ $datum->id }}"
+                                        class="btn btn-warning">Edit</a>
+                                    <a href="/sertifikat/digital-marketing/cetak/{{ $datum->id }}/sertifikat"
+                                        target="_blank" class="btn btn-success my-2">Print Sertifikat</a>
+                                    <a href="/sertifikat/digital-marketing/cetak/{{ $datum->id }}/nilai" target="_blank"
+                                        class="btn btn-success">Print Nilai</a>
+                                    <a href="/sertifikat/digital-marketing/hapus/{{ $datum->id }}"
+                                        class="btn btn-danger  my-2">Hapus</a>
+                                </center>
                             </td>
                         </tr>
                     @endforeach

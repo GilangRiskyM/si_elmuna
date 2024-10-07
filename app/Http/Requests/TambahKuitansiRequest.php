@@ -25,10 +25,21 @@ class TambahKuitansiRequest extends FormRequest
             'nama' => 'required',
             'guna_byr1' => 'required',
             'jumlah' => 'required',
-            'terbilang' => 'required',
             'pembayaran' => 'required',
             'penerima' => 'required',
             'cara_bayar' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nama.required' => 'Nama harus diisi',
+            'guna_byr1.required' => 'Guna Bayar harus diisi',
+            'jumlah.required' => 'Jumlah harus diisi',
+            'pembayaran.required' => 'Pembayaran harus diisi',
+            'penerima.required' => 'Penerima harus diisi',
+            'cara_bayar.required' => 'Cara Bayar harus diisi'
         ];
     }
 }

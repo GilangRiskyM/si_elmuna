@@ -400,7 +400,7 @@
                                     <td>A</td>
                                     <td>86 - 100</td>
                                     <td>=</td>
-                                    <td>Memuasakan</td>
+                                    <td>Memuaskan</td>
                                 </tr>
                                 <tr>
                                     <td>B</td>

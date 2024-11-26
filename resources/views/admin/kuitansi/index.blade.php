@@ -65,7 +65,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="7">
+                        <td colspan="9">
                             <center>
                                 <h3>Data Kosong</h3>
                             </center>

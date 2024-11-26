@@ -4,10 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Keluar;
+use App\Models\User;
 use App\Models\Masuk;
-use Illuminate\Database\Seeder;
+use App\Models\Keluar;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,6 +23,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        User::factory()->create([
+            'name' => 'Admin[Demo]',
+            'email' => 'admin@demo.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$anCyVyyvzSw5DF4aycNXluTyhnOJmx8TYIGU7ldC391rZ0bdbvvc.', // password
+        ]);
 
 
         //fake data hari ini

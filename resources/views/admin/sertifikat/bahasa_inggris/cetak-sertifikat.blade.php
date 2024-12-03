@@ -143,7 +143,8 @@
                 <center>
                     <p>Kebumen, {{ tgl_indonesia3(date(now())) }}</p>
                     <p>LKP ELMUNA</p>
-                    <img src="/asset/img/tanda_tangan.png" alt="" width="50%" class="tanda_tangan">
+                    <img src="/asset/img/qr-code-muhdori-plus-logo.png" alt="" width="20%"
+                        class="tanda_tangan">
                     <p class="nama_direk"><b><u>MUHDORI, A. Md. T., S. Tr. Kom</u></b></p>
                     <p class="direk">DIREKTUR</p>
                 </center>

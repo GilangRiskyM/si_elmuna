@@ -36,11 +36,13 @@
                 @if (count($data) > 0)
                     @foreach ($data as $datum)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $loop->iteration }}</td>
                             <td>{{ $datum->nama }}</td>
                             <td>{{ $datum->jabatan }}</td>
-                            <td>{{ tgl_indonesia3($datum->waktu_presensi) }}</td>
-                            <td>{{ $datum->status }}</td>
+                            <td>{{ date('H:i:s', strtotime($datum->waktu_presensi)) }} WIB,
+                                {{ tgl_indonesia3($datum->waktu_presensi) }}
+                            </td>
+                            <td class="text-center">{{ $datum->status }}</td>
                             <td>
                                 <center>
                                     <a href="/presensi/hapus/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>

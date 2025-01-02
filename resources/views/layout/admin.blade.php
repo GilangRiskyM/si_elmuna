@@ -103,6 +103,21 @@
                                 <a href="/kuitansi" class="nav-link">Kuitansi</a>
                             </nav>
                         </div>
+                        <a href="#" class="nav-link collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#dataKaryawan" aria-expanded="false" aria-controls="dataKaryawan">
+                            <div class="sb-nav-link-icon"><i class="bx bxs-folder"></i></div>
+                            Data Karyawan
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class='bx bxs-chevron-down'></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="dataKaryawan" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAvvordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a href="/karyawan" class="nav-link">Karyawan</a>
+                                <a href="/presensi" class="nav-link">Data Presensi</a>
+                            </nav>
+                        </div>
                         <a href="/logout" class="nav-link">
                             <div class="sb-nav-link-icon"><i class='bx bx-log-out bx-flip-horizontal'></i></div>
                             Keluar

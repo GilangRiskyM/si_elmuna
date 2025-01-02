@@ -57,7 +57,7 @@
     <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover">
             <thead>
-                <tr class="align-middle">
+                <tr class="text-center">
                     <th>No</th>
                     <th>NIK</th>
                     <th>NISN</th>

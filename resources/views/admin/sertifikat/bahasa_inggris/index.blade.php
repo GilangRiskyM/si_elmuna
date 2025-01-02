@@ -26,7 +26,7 @@
     <div class="table-responsive table-data">
         <table class="table table-bordered table-striped table-hover">
             <thead>
-                <tr class="align-middle">
+                <tr class="text-center">
                     <th>No.</th>
                     <th>Nama</th>
                     <th>No. Sertifikat</th>

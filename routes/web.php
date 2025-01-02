@@ -6,8 +6,10 @@ use App\Models\SertifikatBahasaInggris;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\KomputerController;
 use App\Http\Controllers\KuitansiController;
+use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\MengemudiController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\VideoFotoController;
@@ -255,3 +257,18 @@ Route::get('/sertifikat/video-editing-fotografi/cetak/{id}/sertifikat', [Sertifi
 Route::get('/sertifikat/video-editing-fotografi/cetak/{id}/nilai', [SertifikatVideoFotoController::class, 'cetak_nilai'])->middleware('auth');
 Route::get('/sertifikat/video-editing-fotografi/hapus/{id}', [SertifikatVideoFotoController::class, 'delete'])->middleware('auth');
 Route::delete('/destroy-sertifikat/video-editing-fotografi/{id}', [SertifikatVideoFotoController::class, 'destroy'])->middleware('auth');
+
+// Karyawan
+Route::get('/karyawan', [KaryawanController::class, 'index'])->middleware('auth');
+Route::get('/karyawan/tambah', [KaryawanController::class, 'create'])->middleware('auth');
+Route::post('/tambah-karyawan', [KaryawanController::class, 'store'])->middleware('auth');
+Route::get('/karyawan/qr-code/{id}', [KaryawanController::class, 'qrCode'])->middleware('auth');
+Route::get('/karyawan/edit/{id}', [KaryawanController::class, 'edit'])->middleware('auth');
+Route::put('/edit-karyawan/{id}', [KaryawanController::class, 'update'])->middleware('auth');
+Route::get('/karyawan/hapus/{id}', [KaryawanController::class, 'delete'])->middleware('auth');
+Route::delete('/hapus-karyawan/{id}', [KaryawanController::class, 'destroy'])->middleware('auth');
+
+// Presensi
+Route::get('/presensi', [PresensiController::class, 'index'])->middleware('auth');
+Route::get('scan/{id}', [PresensiController::class, 'scan'])->middleware('auth');
+Route::get('/presensi/hapus/{id}', [PresensiController::class, 'destroy'])->middleware('auth');

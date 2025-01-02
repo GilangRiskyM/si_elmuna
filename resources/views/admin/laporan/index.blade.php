@@ -69,7 +69,7 @@
                 <div class="table-responsive table-data">
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
-                            <tr>
+                            <tr class="text-center">
                                 <th>No.</th>
                                 <th>Keterangan Pemasukan</th>
                                 <th>Tanggal</th>

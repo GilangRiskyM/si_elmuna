@@ -217,7 +217,7 @@
                         </p>
                         <div class="telah">
                             <p>Telah Menyelesaikan Pendidikan Mengemudi Program <input type="text" name="program"
-                                    id=""style="width: 300px !important;"> yang
+                                    id=""style="width: 300px !important;" value="{{ old('program') }}"> yang
                                 diselenggarakan oleh </p>
                             <p>LKP ELMUNA dari tanggal
                                 @if ($data->tgl_mulai == !null)
@@ -229,8 +229,8 @@
                                 @endif
                                 sampai
                                 @if ($data->tgl_selesai == !null)
-                                    <input type="date" name="tgl_selesai" id="" value="{{ $data->tgl_selesai }}"
-                                        style="width: 135px !important;" readonly>
+                                    <input type="date" name="tgl_selesai" id=""
+                                        value="{{ $data->tgl_selesai }}" style="width: 135px !important;" readonly>
                                 @else
                                     <input type="date" name="tgl_selesai" id=""
                                         value="{{ old('tgl_selesai') }}">

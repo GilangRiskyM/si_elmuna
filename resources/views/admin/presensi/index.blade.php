@@ -42,7 +42,15 @@
                             <td>{{ date('H:i:s', strtotime($datum->waktu_presensi)) }} WIB,
                                 {{ tgl_indonesia3($datum->waktu_presensi) }}
                             </td>
-                            <td class="text-center">{{ $datum->status }}</td>
+                            <td class="text-center">
+                                @if ($datum->status == 'hadir')
+                                    <span class="badge bg-success">Hadir</span>
+                                @elseif ($datum->status == 'izin')
+                                    <span class="badge bg-warning">Izin</span>
+                                @elseif ($datum->status == 'alpha')
+                                    <span class="badge bg-danger">Alpha</span>
+                                @endif
+                            </td>
                             <td>
                                 <center>
                                     <a href="/presensi/hapus/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>

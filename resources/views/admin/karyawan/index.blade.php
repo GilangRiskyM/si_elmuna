@@ -44,7 +44,8 @@
                             <td>{{ $datum->jabatan }}</td>
                             <td>
                                 <center>
-                                    <a href="/karyawan/qr-code/{{ $datum->id }}" class="btn btn-info">Lihat QR Code</a>
+                                    <a href="/karyawan/qr-code/{{ $datum->id }}" class="btn btn-info my-2">Lihat QR
+                                        Code</a>
                                     <a href="/karyawan/edit/{{ $datum->id }}" class="btn btn-warning">Edit</a>
                                     <a href="/karyawan/hapus/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
                                 </center>

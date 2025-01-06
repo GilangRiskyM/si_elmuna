@@ -23,6 +23,14 @@
                         <td>:</td>
                         <td>{{ $data->jabatan }}</td>
                     </tr>
+                    <tr>
+                        <td>Tanda Tangan</td>
+                        <td>:</td>
+                        <td>
+                            <img src="{{ asset('tanda_tangan' . '/' . $data->tanda_tangan) }}"
+                                alt="Tanda Tangan {{ $data->nama }}" class="img-thumbnail" width="20%">
+                        </td>
+                    </tr>
                 </table>
                 <div class="mt-3">
                     <form action="/hapus-karyawan/{{ $data->id }}" method="POST">

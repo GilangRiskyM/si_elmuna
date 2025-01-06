@@ -9,6 +9,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    <div class="my-3">
+        <a href="/presensi/tambah" class="btn btn-primary">Tambah Data</a>
+    </div>
+    <hr>
     <div class="col-12 col-sm-8 col-md-4">
         <label for="" class="mb-2">Cari Data</label>
         <form action="/presensi" method="get">
@@ -43,12 +47,14 @@
                                 {{ tgl_indonesia3($datum->waktu_presensi) }}
                             </td>
                             <td class="text-center">
-                                @if ($datum->status == 'hadir')
-                                    <span class="badge bg-success">Hadir</span>
-                                @elseif ($datum->status == 'izin')
-                                    <span class="badge bg-warning">Izin</span>
-                                @elseif ($datum->status == 'alpha')
-                                    <span class="badge bg-danger">Alpha</span>
+                                @if ($datum->status == 'Hadir')
+                                    <label class="badge bg-success">Hadir</label>
+                                @elseif ($datum->status == 'Izin')
+                                    <label class="badge bg-warning">Izin</label>
+                                @elseif ($datum->status == 'Sakit')
+                                    <label class="badge bg-warning">Sakit</label>
+                                @elseif ($datum->status == 'Alpha')
+                                    <label class="badge bg-danger">Alpha</label>
                                 @endif
                             </td>
                             <td>

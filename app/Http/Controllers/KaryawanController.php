@@ -37,7 +37,21 @@ class KaryawanController extends Controller
     function store(TambahKaryawanRequest $request)
     {
         $request->validated();
-        $tambah = Karyawan::create($request->all());
+
+        if ($request->hasFile('tanda_tangan')) {
+            $gambar =  $request->file('tanda_tangan');
+            $namaGambar = time() . '_' . $gambar->getClientOriginalName();
+            $lokasi = public_path('tanda_tangan');
+            $gambar->move($lokasi, $namaGambar);
+        }
+
+        $data = [
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'tanda_tangan' => $namaGambar,
+        ];
+
+        $tambah = Karyawan::create($data);
         if ($tambah) {
             Session::flash('status', 'success');
             Session::flash('message', 'Data berhasil ditambahkan!');
@@ -68,9 +82,27 @@ class KaryawanController extends Controller
 
     function update(EditKaryawanRequest $request, $id)
     {
-        $sql = Karyawan::findOrFail($id);
+        $karyawan = Karyawan::findOrFail($id);
         $request->validated();
-        $update = $sql->update($request->all());
+
+        if ($request->hasFile('tanda_tangan')) {
+            if (isset($karyawan->tanda_tangan) && file_exists(public_path('tanda_tangan') . '/' . $karyawan->tanda_tangan)) {
+                unlink(public_path('tanda_tangan') . '/' . $karyawan->tanda_tangan);
+            }
+            $gambar = $request->file('tanda_tangan');
+            $namaGambar = time() . '_' . $gambar->getClientOriginalName();
+            $lokasi = public_path('tanda_tangan');
+            $gambar->move($lokasi, $namaGambar);
+        }
+
+        $data = [
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'tanda_tangan' => $namaGambar,
+        ];
+
+        $update = $karyawan->update($data);
+
         if ($update) {
             Session::flash('status', 'success');
             Session::flash('message', 'Data berhasil diubah!');

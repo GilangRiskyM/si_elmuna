@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('jabatan');
+            $table->string('tanda_tangan');
             $table->timestamps();
         });
     }

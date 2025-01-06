@@ -42,7 +42,7 @@ Route::get('/', [HomeController::class, 'index'])->middleware('guest');
 Route::get('/dashboard', [HomeController::class, 'adminDashboard'])->middleware('auth');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
-Route::post('/login', [AuthController::class, 'authenticating']);
+Route::post('/login', [AuthController::class, 'authenticating'])->middleware('throttle:login');
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 Route::get('/daftar_mengemudi', [MengemudiController::class, 'create'])->middleware('guest');
@@ -272,3 +272,6 @@ Route::delete('/hapus-karyawan/{id}', [KaryawanController::class, 'destroy'])->m
 Route::get('/presensi', [PresensiController::class, 'index'])->middleware('auth');
 Route::get('scan/{id}', [PresensiController::class, 'scan'])->middleware('auth');
 Route::get('/presensi/hapus/{id}', [PresensiController::class, 'destroy'])->middleware('auth');
+Route::get('/get-data-karyawan', [PresensiController::class, 'getDataKaryawan'])->middleware('auth');
+Route::get('/presensi/tambah', [PresensiController::class, 'create'])->middleware('auth');
+Route::post('/tambah-presensi', [PresensiController::class, 'store'])->middleware('auth');

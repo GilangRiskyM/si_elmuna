@@ -17,7 +17,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/tambah-karyawan" method="post">
+            <form action="/tambah-karyawan" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>
@@ -26,6 +26,11 @@
                 <div class="mb-3">
                     <label for="jabatan" class="form-label">Jabatan</label>
                     <input type="text" name="jabatan" id="jabatan" class="form-control" value="{{ old('jabatan') }}">
+                </div>
+                <div class="mb-3">
+                    <label for="tanda_tangan" class="form-label">Tanda Tangan</label>
+                    <input type="file" name="tanda_tangan" id="tanda_tangan" class="form-control"
+                        value="{{ old('tanda_tangan') }}">
                 </div>
                 <div class="my-2">
                     <center>

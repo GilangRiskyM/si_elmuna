@@ -32,6 +32,7 @@
                     <th>No</th>
                     <th>Nama</th>
                     <th>Jabatan</th>
+                    <th>Tanda Tangan</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -42,6 +43,12 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $datum->nama }}</td>
                             <td>{{ $datum->jabatan }}</td>
+                            <td>
+                                <center>
+                                    <img src="{{ asset('tanda_tangan' . '/' . $datum->tanda_tangan) }}"
+                                        alt="Tanda Tangan {{ $datum->nama }}" class="img-thumbnail" width="10%">
+                                </center>
+                            </td>
                             <td>
                                 <center>
                                     <a href="/karyawan/qr-code/{{ $datum->id }}" class="btn btn-info my-2">Lihat QR

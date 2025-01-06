@@ -14,5 +14,9 @@
         <h3>
             {{ $data->jabatan }}
         </h3>
+        <center>
+            <img src="{{ asset('tanda_tangan' . '/' . $data->tanda_tangan) }}" alt="Tanda Tangan {{ $data->nama }}"
+                class="img-thumbnail" width="20%">
+        </center>
     </div>
 @endsection

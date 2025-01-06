@@ -8,14 +8,11 @@
         "src": "/asset/img/(.*)",
         "dest": "public/$1/$2/$3"
     },{
-        "src": "/(css|js)/(.*)",
+        "src": "/(css|js|tanda_tangan)/(.*)",
         "dest": "public/$1/$2"
     },{
         "src": "/(.*)",
         "dest": "/api/index.php"
-    },{
-        "src": "/tanda_tangan/(.*)",
-        "dest": "public/tanda_tangan/$1"
     }],
     "env": {
         "APP_ENV": "production",

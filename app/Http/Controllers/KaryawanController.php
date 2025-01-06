@@ -98,7 +98,7 @@ class KaryawanController extends Controller
         $data = [
             'nama' => $request->nama,
             'jabatan' => $request->jabatan,
-            'tanda_tangan' => $namaGambar,
+            'tanda_tangan' => isset($namaGambar) ? $namaGambar : $karyawan->tanda_tangan,
         ];
 
         $update = $karyawan->update($data);

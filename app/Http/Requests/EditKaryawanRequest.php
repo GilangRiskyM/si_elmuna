@@ -24,7 +24,7 @@ class EditKaryawanRequest extends FormRequest
         return [
             'nama' => 'required',
             'jabatan' => 'required',
-            'tanda_tangan' => 'required|image|mimes:jpg,jpeg,png|max:10240',
+            'tanda_tangan' => 'image|mimes:jpg,jpeg,png|max:10240',
         ];
     }
 
@@ -33,7 +33,6 @@ class EditKaryawanRequest extends FormRequest
         return [
             'nama.required' => 'Nama harus diisi!',
             'jabatan.required' => 'Jabatan harus diisi!',
-            'tanda_tangan.required' => 'Tanda tangan harus diisi!',
             'tanda_tangan.image' => 'Tanda tangan harus berupa gambar!',
             'tanda_tangan.mimes' => 'Ekstensi yang diperbolehkan hanya untuk format jpeg, jpg, dan png!',
             'tanda_tangan.max' => 'Ukuran gambar tidak boleh lebih dari :max MB!'

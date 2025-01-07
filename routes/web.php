@@ -275,3 +275,5 @@ Route::get('/presensi/hapus/{id}', [PresensiController::class, 'destroy'])->midd
 Route::get('/get-data-karyawan', [PresensiController::class, 'getDataKaryawan'])->middleware('auth');
 Route::get('/presensi/tambah', [PresensiController::class, 'create'])->middleware('auth');
 Route::post('/tambah-presensi', [PresensiController::class, 'store'])->middleware('auth');
+Route::get('/presensi/filter', [PresensiController::class, 'filterData'])->middleware('auth');
+Route::post('/presensi/export', [PresensiController::class, 'export'])->middleware('auth');
